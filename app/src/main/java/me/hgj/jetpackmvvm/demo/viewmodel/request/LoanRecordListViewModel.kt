@@ -32,7 +32,8 @@ open class LoanRecordListViewModel : BaseViewModel() {
             val uiState = CollectUiState(isSuccess = true, collect = true, id = id)
             collectUiState.value = uiState
         }, {
-            val uiState = CollectUiState(isSuccess = false, collect = false, errorMsg = it.errorMsg, id = id)
+            val uiState =
+                CollectUiState(isSuccess = false, collect = false, errorMsg = it.errorMsg, id = id)
             collectUiState.value = uiState
         })
     }
@@ -40,7 +41,8 @@ open class LoanRecordListViewModel : BaseViewModel() {
     var loanListDataState: MutableLiveData<ListDataUiState<LoanRecordResponse>> = MutableLiveData()
 
 
-    var repaymentListDataState: MutableLiveData<ListDataUiState<RepaymentItemResponse>> = MutableLiveData()
+    var repaymentListDataState: MutableLiveData<ListDataUiState<RepaymentItemResponse>> =
+        MutableLiveData()
 
     var repaymentDataState: MutableLiveData<RepaymentResponse> = MutableLiveData()
 

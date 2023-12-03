@@ -77,6 +77,20 @@
 
 
     <fragment
+        android:id="@+id/homeNewFragment"
+        android:name="me.hgj.jetpackmvvm.demo.ui.fragment.home.HomeNewFragment"
+        android:label="HomeNewFragment">
+        <action
+            android:id="@+id/action_HomeNewFragment_to_NewLoanUserInfoFragment"
+            app:destination="@id/newLoanUserInfoFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+
+    <fragment
         android:id="@+id/loginFragment"
         android:name="me.hgj.jetpackmvvm.demo.ui.fragment.login.LoginFragment"
         android:label="LoginFragment">
@@ -201,6 +215,11 @@
         android:id="@+id/bankcardAddFragment"
         android:name="me.hgj.jetpackmvvm.demo.ui.fragment.collect.BankCardAddFragment"
         android:label="BankCardAddFragment" />
+
+    <fragment
+        android:id="@+id/newLoanUserInfoFragment"
+        android:name="me.hgj.jetpackmvvm.demo.ui.fragment.collect.NewLoanUserInfoFragment"
+        android:label="NewLoanUserInfoFragment" />
 
     <fragment
         android:id="@+id/addAriticleFragment"

@@ -2,21 +2,29 @@ package me.hgj.jetpackmvvm.demo.ui.fragment.home
 
 import android.os.Bundle
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import me.hgj.jetpackmvvm.demo.R
 import me.hgj.jetpackmvvm.demo.app.appViewModel
+import me.hgj.jetpackmvvm.demo.app.base.BaseFragment
 import me.hgj.jetpackmvvm.demo.app.base.BaseFragment1
 import me.hgj.jetpackmvvm.demo.app.eventViewModel
 import me.hgj.jetpackmvvm.demo.app.ext.*
 import me.hgj.jetpackmvvm.demo.databinding.FragmentHomeNewBinding
 import me.hgj.jetpackmvvm.demo.viewmodel.state.HomeViewModel
+import me.hgj.jetpackmvvm.ext.nav
+import me.hgj.jetpackmvvm.ext.navigateAction
 
 /**
  * 作者　: hegaojian
  * 时间　: 2019/12/27
  * 描述　:
  */
-class HomeNewFragment : BaseFragment1<HomeViewModel, FragmentHomeNewBinding>() {
+class HomeNewFragment : BaseFragment<HomeViewModel, FragmentHomeNewBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
+        mDatabind.tvHome.setOnClickListener {
+            findNavController().navigate(R.id.newLoanUserInfoFragment)
+        }
     }
 
     /**
