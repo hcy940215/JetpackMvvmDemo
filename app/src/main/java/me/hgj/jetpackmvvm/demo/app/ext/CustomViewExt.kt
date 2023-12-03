@@ -39,6 +39,7 @@ import me.hgj.jetpackmvvm.demo.app.weight.viewpager.ScaleTransitionPagerTitleVie
 import me.hgj.jetpackmvvm.demo.data.model.bean.ClassifyResponse
 import me.hgj.jetpackmvvm.demo.ui.fragment.home.HomeFragment
 import me.hgj.jetpackmvvm.demo.ui.fragment.home.HomeNewFragment
+import me.hgj.jetpackmvvm.demo.ui.fragment.integral.BRepaymentFragment
 import me.hgj.jetpackmvvm.demo.ui.fragment.me.MeFragment
 import me.hgj.jetpackmvvm.demo.ui.fragment.project.ProjectFragment
 import me.hgj.jetpackmvvm.demo.ui.fragment.publicNumber.PublicNumberFragment
@@ -335,9 +336,9 @@ fun ViewPager2.initMain(fragment: Fragment): ViewPager2 {
                 0 -> {
                     return HomeNewFragment()
                 }
-//                1 -> {
-//                    return ProjectFragment()
-//                }
+                1 -> {
+                    return BRepaymentFragment()
+                }
 //                2 -> {
 //                    return TreeArrFragment()
 //                }
@@ -411,9 +412,9 @@ fun <T> loadListData(
     baseQuickAdapter: BaseQuickAdapter<T, *>,
     loadService: LoadService<*>,
     recyclerView: SwipeRecyclerView,
-    swipeRefreshLayout: SwipeRefreshLayout
+    swipeRefreshLayout: SwipeRefreshLayout? = null
 ) {
-    swipeRefreshLayout.isRefreshing = false
+    swipeRefreshLayout?.isRefreshing = false
     recyclerView.loadMoreFinish(data.isEmpty, data.hasMore)
     if (data.isSuccess) {
         //成功

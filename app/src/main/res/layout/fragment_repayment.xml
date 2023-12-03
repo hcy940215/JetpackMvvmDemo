@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="me.hgj.jetpackmvvm.demo.viewmodel.state.IntegralViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/repay_bg"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:text="贷Job"
+            android:layout_marginTop="@dimen/dp_20"
+            android:textColor="#ffffffff"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="36dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:background="@mipmap/box"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="全部待还(元)"
+                android:textColor="#ff000000"
+                android:textSize="14sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2,072.87"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/dp_15"
+                android:textColor="#ff000000"
+                android:textSize="40sp"
+                />
+
+            <TextView
+                android:layout_marginTop="@dimen/dp_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12月12日（剩余14天）待还690.97元"
+                android:textColor="#ff666666"
+                android:textSize="13sp"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginVertical="@dimen/dp_12"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_height="wrap_content"
+            android:text="使用中的贷款(共1笔)"
+            android:textColor="#ff000000"
+            android:textSize="15sp"
+            />
+
+        <com.yanzhenjie.recyclerview.SwipeRecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scrollbars="none"
+            />
+
+    </LinearLayout>
+</layout>
