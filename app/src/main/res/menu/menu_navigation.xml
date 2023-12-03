@@ -9,16 +9,16 @@
     <item
         android:id="@+id/menu_project"
         android:icon="@drawable/menu_project"
-        android:title="@string/bottom_name2" />
+        android:title="@string/bottom_name6" />
 
-    <item
-        android:id="@+id/menu_system"
-        android:icon="@drawable/menu_tree"
-        android:title="@string/bottom_name3" />
-    <item
-        android:id="@+id/menu_public"
-        android:icon="@drawable/menu_public"
-        android:title="@string/bottom_name4" />
+<!--    <item-->
+<!--        android:id="@+id/menu_system"-->
+<!--        android:icon="@drawable/menu_tree"-->
+<!--        android:title="@string/bottom_name3" />-->
+<!--    <item-->
+<!--        android:id="@+id/menu_public"-->
+<!--        android:icon="@drawable/menu_public"-->
+<!--        android:title="@string/bottom_name4" />-->
     <item
         android:id="@+id/menu_me"
         android:icon="@drawable/menu_me"

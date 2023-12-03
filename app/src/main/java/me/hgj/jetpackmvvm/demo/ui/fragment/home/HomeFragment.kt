@@ -9,12 +9,8 @@ import com.blankj.utilcode.util.ConvertUtils
 import com.kingja.loadsir.core.LoadService
 import com.yanzhenjie.recyclerview.SwipeRecyclerView
 import com.zhpan.bannerview.BannerViewPager
-import kotlinx.android.synthetic.main.include_list.*
-import kotlinx.android.synthetic.main.include_recyclerview.*
-import kotlinx.android.synthetic.main.include_toolbar.*
 import me.hgj.jetpackmvvm.demo.R
 import me.hgj.jetpackmvvm.demo.app.appViewModel
-import me.hgj.jetpackmvvm.demo.app.base.BaseFragment
 import me.hgj.jetpackmvvm.demo.app.base.BaseFragment1
 import me.hgj.jetpackmvvm.demo.app.eventViewModel
 import me.hgj.jetpackmvvm.demo.app.ext.*
@@ -26,7 +22,7 @@ import me.hgj.jetpackmvvm.demo.data.model.bean.BannerResponse
 import me.hgj.jetpackmvvm.demo.data.model.bean.CollectBus
 import me.hgj.jetpackmvvm.demo.databinding.FragmentHomeBinding
 import me.hgj.jetpackmvvm.demo.ui.adapter.AriticleAdapter
-import me.hgj.jetpackmvvm.demo.viewmodel.request.RequestCollectViewModel
+import me.hgj.jetpackmvvm.demo.viewmodel.request.LoanRecordListViewModel
 import me.hgj.jetpackmvvm.demo.viewmodel.request.RequestHomeViewModel
 import me.hgj.jetpackmvvm.demo.viewmodel.state.HomeViewModel
 import me.hgj.jetpackmvvm.ext.nav
@@ -50,7 +46,7 @@ class HomeFragment : BaseFragment1<HomeViewModel, FragmentHomeBinding>() {
     private lateinit var footView: DefineLoadMoreView
 
     //收藏viewModel
-    private val requestCollectViewModel: RequestCollectViewModel by viewModels()
+    private val requestCollectViewModel: LoanRecordListViewModel by viewModels()
 
     //请求数据ViewModel
     private val requestHomeViewModel: RequestHomeViewModel by viewModels()
@@ -106,21 +102,6 @@ class HomeFragment : BaseFragment1<HomeViewModel, FragmentHomeBinding>() {
                         articleAdapter.data[position - this@HomeFragment.mViewBind.includeList.includeRecyclerview.recyclerView.headerCount]
                     )
                 })
-            }
-            addChildClickViewIds(R.id.item_home_author, R.id.item_project_author)
-            setOnItemChildClickListener { adapter, view, position ->
-                when (view.id) {
-                    R.id.item_home_author, R.id.item_project_author -> {
-                        nav().navigateAction(
-                            R.id.action_mainfragment_to_lookInfoFragment,
-                            Bundle().apply {
-                                putInt(
-                                    "id",
-                                    articleAdapter.data[position - this@HomeFragment.mViewBind.includeList.includeRecyclerview.recyclerView.headerCount].userId
-                                )
-                            })
-                    }
-                }
             }
         }
     }

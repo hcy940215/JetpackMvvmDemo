@@ -8,7 +8,7 @@
             type="me.hgj.jetpackmvvm.demo.viewmodel.state.LoginRegisterViewModel" />
         <variable
             name="click"
-            type="me.hgj.jetpackmvvm.demo.ui.fragment.login.RegisterFrgment.ProxyClick" />
+            type="me.hgj.jetpackmvvm.demo.ui.fragment.login.RegisterFragment.ProxyClick" />
     </data>
 
     <LinearLayout

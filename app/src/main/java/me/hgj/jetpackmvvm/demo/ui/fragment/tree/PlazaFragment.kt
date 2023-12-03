@@ -19,7 +19,7 @@ import me.hgj.jetpackmvvm.demo.app.weight.recyclerview.SpaceItemDecoration
 import me.hgj.jetpackmvvm.demo.data.model.bean.CollectBus
 import me.hgj.jetpackmvvm.demo.databinding.IncludeListBinding
 import me.hgj.jetpackmvvm.demo.ui.adapter.AriticleAdapter
-import me.hgj.jetpackmvvm.demo.viewmodel.request.RequestCollectViewModel
+import me.hgj.jetpackmvvm.demo.viewmodel.request.LoanRecordListViewModel
 import me.hgj.jetpackmvvm.demo.viewmodel.request.RequestTreeViewModel
 import me.hgj.jetpackmvvm.demo.viewmodel.state.TreeViewModel
 import me.hgj.jetpackmvvm.ext.nav
@@ -36,7 +36,7 @@ class PlazaFragment : BaseFragment<TreeViewModel, IncludeListBinding>() {
     private lateinit var loadsir: LoadService<Any>
 
     //收藏viewmodel
-    private val requestCollectViewModel: RequestCollectViewModel by viewModels()
+    private val requestCollectViewModel: LoanRecordListViewModel by viewModels()
 
     //请求ViewModel
     private val requestTreeViewModel: RequestTreeViewModel by viewModels()
@@ -82,21 +82,6 @@ class PlazaFragment : BaseFragment<TreeViewModel, IncludeListBinding>() {
                 nav().navigateAction(R.id.action_to_webFragment, Bundle().apply {
                     putParcelable("ariticleData", articleAdapter.data[position])
                 })
-            }
-            addChildClickViewIds(R.id.item_home_author, R.id.item_project_author)
-            setOnItemChildClickListener { adapter, view, position ->
-                when (view.id) {
-                    R.id.item_home_author, R.id.item_project_author -> {
-                        nav().navigateAction(
-                            R.id.action_mainfragment_to_lookInfoFragment,
-                            Bundle().apply {
-                                putInt(
-                                    "id",
-                                    articleAdapter.data[position - this@PlazaFragment.recyclerView.headerCount].userId
-                                )
-                            })
-                    }
-                }
             }
         }
     }

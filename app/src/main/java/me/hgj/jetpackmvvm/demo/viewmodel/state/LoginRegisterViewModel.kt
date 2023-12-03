@@ -17,8 +17,14 @@ import me.hgj.jetpackmvvm.ext.util.logd
  */
 class LoginRegisterViewModel : BaseViewModel() {
 
+    //姓名
+    var realName = StringObservableField()
+
     //用户名
     var username = StringObservableField()
+
+    //验证码
+    var smsCode = StringObservableField()
 
     //密码(登录注册界面)
     var password = StringObservableField()

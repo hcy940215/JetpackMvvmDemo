@@ -1,6 +1,7 @@
 package me.hgj.jetpackmvvm.demo.app.network
 
 import me.hgj.jetpackmvvm.demo.data.model.bean.*
+import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.*
@@ -13,29 +14,91 @@ import retrofit2.http.*
 interface ApiService {
 
     companion object {
-        const val SERVER_URL = "https://wanandroid.com/"
-        const val SERVER_URL1 = "https://wanandroid.com/"
+        const val SERVER_URL = "http://118.25.152.12:9996"
     }
 
     /**
      * 登录
      */
-    @FormUrlEncoded
-    @POST("user/login")
+    @HTTP(method = "POST", path = "/login", hasBody = true)
     suspend fun login(
-        @Field("username") username: String,
-        @Field("password") pwd: String
-    ): ApiResponse<UserInfo>
+        @Body body: RequestBody,
+    ): TokenApiResponse<String>
 
     /**
      * 注册
      */
-    @FormUrlEncoded
-    @POST("user/register")
+    @HTTP(method = "POST", path = "/register", hasBody = true)
     suspend fun register(
-        @Field("username") username: String, @Field("password") pwd: String, @Field(
-            "repassword"
-        ) rpwd: String
+        @Body body: RequestBody,
+    ): ApiResponse<Any>
+
+    /**
+     * 获取短信验证码
+     */
+    @HTTP(method = "POST", path = "/common/upload", hasBody = true)
+    suspend fun upload(
+        @Body body: RequestBody,
+    ): ApiResponse<Any>
+
+    /**
+     * 通用附件上传接口（上传身份证，人脸识别都是调用这个附件上传即可）
+     */
+    @HTTP(method = "POST", path = "/sendSmsCode", hasBody = true)
+    suspend fun sendSmsCode(
+        @Body body: RequestBody,
+    ): ApiResponse<String>
+
+    /**
+     * 添加银行卡接口
+     */
+    @HTTP(method = "POST", path = "/addBankCard", hasBody = true)
+    suspend fun addBankCard(
+        @Body body: RequestBody,
+    ): ApiResponse<Any>
+
+    /**
+     * 借还记录接口
+     */
+    @HTTP(method = "GET", path = "/listLoan", hasBody = false)
+    suspend fun listLoan(): ApiResponse<ArrayList<LoanRecordResponse>>
+
+    /**
+     * 借还记录接口
+     */
+    @HTTP(method = "GET", path = "/getBankCardList", hasBody = false)
+    suspend fun getBankCardList(): ApiResponse<ArrayList<BankCardResponse>>
+
+    /**
+     * 新增贷款接口
+     */
+    @HTTP(method = "POST", path = "/Apploan/newLoan", hasBody = true)
+    suspend fun newLoan(
+        @Body body: RequestBody,
+    ): ApiResponse<Any>
+
+    /**
+     * 生成还款计划
+     */
+    @HTTP(method = "POST", path = "/Apploan/repaymentPlan", hasBody = true)
+    suspend fun repaymentPlan(
+        @Body body: RequestBody,
+    ): ApiResponse<Any>
+
+    /**
+     * 生成还款计划
+     */
+    @HTTP(method = "POST", path = "/Apploan/selectBRepayment", hasBody = true)
+    suspend fun selectBRepayment(
+        @Body body: RequestBody,
+    ): ApiResponse<Any>
+
+    /**
+     * 立即支付接口
+     */
+    @HTTP(method = "POST", path = "/repayment", hasBody = true)
+    suspend fun repayment(
+        @Body body: RequestBody,
     ): ApiResponse<Any>
 
     /**

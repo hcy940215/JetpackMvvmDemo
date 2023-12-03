@@ -4,7 +4,8 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="?attr/colorPrimary"
+    android:background="@color/white"
     android:theme="@style/AppTheme.AppBarOverlay"
     app:layout_scrollFlags="scroll|enterAlways"
+    app:titleTextColor="@color/black"
     app:popupTheme="@style/AppTheme.PopupOverlay" />

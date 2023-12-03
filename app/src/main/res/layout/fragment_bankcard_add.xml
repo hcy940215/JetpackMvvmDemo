@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="me.hgj.jetpackmvvm.demo.viewmodel.state.BankCardAddViewModel" />
+
+        <variable
+            name="click"
+            type="me.hgj.jetpackmvvm.demo.ui.fragment.collect.BankCardAddFragment.ProxyClick" />
+    </data>
+
+    <LinearLayout
+        background="@color/windowBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/include_toolbar" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_40"
+            app:cardCornerRadius="@dimen/dp_8"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center_horizontal"
+                android:layoutAnimation="@anim/layout_fall_down"
+                android:orientation="vertical"
+                tools:layoutAnimation="@null">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_20">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:text="开户人" />
+
+                    <com.hjq.widget.view.RegexEditText
+                        android:id="@+id/et_register_real_name"
+                        style="@style/EditTextStyle"
+                        android:hint="请输入姓名"
+                        android:inputType="textVisiblePassword"
+                        android:maxLength="@integer/sms_code_length"
+                        android:singleLine="true"
+                        android:text="@={viewmodel.realName}"
+                        app:regexType="name" />
+                </LinearLayout>
+
+                <View style="@style/HorizontalLineStyle" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_20">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:text="卡号" />
+
+                    <com.hjq.widget.view.RegexEditText
+                        android:id="@+id/et_register_card_number"
+                        style="@style/EditTextStyle"
+                        android:hint="请输入银行卡卡号"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:text="@={viewmodel.cardNum}"
+                        app:regexType="number" />
+                </LinearLayout>
+
+                <View style="@style/HorizontalLineStyle" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_20">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:text="开户行" />
+
+                    <com.hjq.widget.view.RegexEditText
+                        android:id="@+id/et_register_password1"
+                        style="@style/EditTextStyle"
+                        android:hint="请输入开户行"
+                        android:maxLength="20"
+
+                        android:singleLine="true"
+                        android:text="@={viewmodel.bankName}" />
+
+                </LinearLayout>
+
+                <View style="@style/HorizontalLineStyle" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:visibility="gone">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:text="确认密码" />
+
+                    <com.hjq.widget.view.PasswordEditText
+                        android:id="@+id/et_register_password2"
+                        style="@style/EditTextStyle"
+                        android:hint="请再次输入密码"
+                        android:imeOptions="actionDone"
+                        android:maxLength="20"
+                        android:singleLine="true"
+                        android:text="@={viewmodel.password2}" />
+
+                </LinearLayout>
+
+                <View
+                    style="@style/HorizontalLineStyle"
+                    android:visibility="gone" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_20">
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:text="手机号码" />
+
+                    <com.hjq.widget.view.RegexEditText
+                        android:id="@+id/et_register_phone"
+                        style="@style/EditTextStyle"
+                        android:hint="@string/common_phone_input_hint"
+                        android:inputType="textVisiblePassword"
+                        android:singleLine="true"
+                        android:text="@={viewmodel.username}"
+                        app:regexType="number" />
+                </LinearLayout>
+
+                <View style="@style/HorizontalLineStyle" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_20">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            style="@style/TextStyle"
+                            android:text="验证码" />
+
+                        <com.hjq.widget.view.RegexEditText
+                            android:id="@+id/et_register_code"
+                            style="@style/EditTextStyle"
+                            android:hint="@string/common_code_input_hint"
+                            android:inputType="textVisiblePassword"
+                            android:maxLength="@integer/sms_code_length"
+                            android:singleLine="true"
+                            android:text="@={viewmodel.smsCode}"
+                            app:regexType="number" />
+
+                    </LinearLayout>
+
+                    <com.hjq.widget.view.CountdownView
+                        android:id="@+id/cv_register_countdown"
+                        style="@style/CountdownViewStyle"
+                        android:onClick="@{()->click.getCode()}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    style="@style/HorizontalLineStyle"
+                    android:layout_marginBottom="@dimen/dp_15" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            style="@style/TextStyle"
+                            android:text="身份证件" />
+
+                        <TextView
+                            style="@style/EditTextStyle"
+                            android:hint="点击上传" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:src="@mipmap/my_icon_arrow"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            style="@style/ButtonStyle"
+            android:enabled="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="@dimen/dp_30"
+            android:onClick="@{()->click.register()}"
+            android:text="提交绑定" />
+    </LinearLayout>
+
+</layout>

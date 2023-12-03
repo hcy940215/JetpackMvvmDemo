@@ -38,6 +38,7 @@ import me.hgj.jetpackmvvm.demo.app.weight.recyclerview.DefineLoadMoreView
 import me.hgj.jetpackmvvm.demo.app.weight.viewpager.ScaleTransitionPagerTitleView
 import me.hgj.jetpackmvvm.demo.data.model.bean.ClassifyResponse
 import me.hgj.jetpackmvvm.demo.ui.fragment.home.HomeFragment
+import me.hgj.jetpackmvvm.demo.ui.fragment.home.HomeNewFragment
 import me.hgj.jetpackmvvm.demo.ui.fragment.me.MeFragment
 import me.hgj.jetpackmvvm.demo.ui.fragment.project.ProjectFragment
 import me.hgj.jetpackmvvm.demo.ui.fragment.publicNumber.PublicNumberFragment
@@ -136,7 +137,7 @@ fun SwipeRecyclerView.initFooter(loadmoreListener: SwipeRecyclerView.LoadMoreLis
     })
     this.run {
         //添加加载更多尾部
-        addFooterView(footerView)
+//        addFooterView(footerView)
         setLoadMoreView(footerView)
         //设置加载更多回调
         setLoadMoreListener(loadmoreListener)
@@ -192,10 +193,10 @@ fun Toolbar.init(titleStr: String = ""): Toolbar {
  */
 fun Toolbar.initClose(
     titleStr: String = "",
-    backImg: Int = R.drawable.ic_back,
+    backImg: Int = R.mipmap.ic_back,
     onBack: (toolbar: Toolbar) -> Unit
 ): Toolbar {
-    setBackgroundColor(SettingUtil.getColor(appContext))
+    setBackgroundColor(Color.WHITE)
     title = titleStr.toHtml()
     setNavigationIcon(backImg)
     setNavigationOnClickListener { onBack.invoke(this) }
@@ -332,26 +333,26 @@ fun ViewPager2.initMain(fragment: Fragment): ViewPager2 {
         override fun createFragment(position: Int): Fragment {
             when (position) {
                 0 -> {
-                    return HomeFragment()
+                    return HomeNewFragment()
                 }
-                1 -> {
-                    return ProjectFragment()
-                }
+//                1 -> {
+//                    return ProjectFragment()
+//                }
+//                2 -> {
+//                    return TreeArrFragment()
+//                }
+//                3 -> {
+//                    return PublicNumberFragment()
+//                }
                 2 -> {
-                    return TreeArrFragment()
-                }
-                3 -> {
-                    return PublicNumberFragment()
-                }
-                4 -> {
                     return MeFragment()
                 }
                 else -> {
-                    return HomeFragment()
+                    return HomeNewFragment()
                 }
             }
         }
-        override fun getItemCount() = 5
+        override fun getItemCount() = 3
     }
     return this
 }
@@ -360,7 +361,7 @@ fun BottomNavigationViewEx.init(navigationItemSelectedAction: (Int) -> Unit): Bo
     enableAnimation(true)
     enableShiftingMode(false)
     enableItemShiftingMode(true)
-    itemIconTintList = SettingUtil.getColorStateList(SettingUtil.getColor(appContext))
+//    itemIconTintList = SettingUtil.getColorStateList(SettingUtil.getColor(appContext))
     itemTextColor = SettingUtil.getColorStateList(appContext)
     setTextSize(12F)
     setOnNavigationItemSelectedListener {

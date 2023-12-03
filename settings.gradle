@@ -1,2 +1,4 @@
 include ':app', ':JetpackMvvm'
+include ':library:base'
+include ':library:widget'
 rootProject.name='JetpackMvvmDemo'

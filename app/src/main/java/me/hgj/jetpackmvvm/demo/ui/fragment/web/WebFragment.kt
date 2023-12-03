@@ -26,7 +26,7 @@ import me.hgj.jetpackmvvm.demo.app.util.CacheUtil
 import me.hgj.jetpackmvvm.demo.data.model.bean.*
 import me.hgj.jetpackmvvm.demo.data.model.enums.CollectType
 import me.hgj.jetpackmvvm.demo.databinding.FragmentWebBinding
-import me.hgj.jetpackmvvm.demo.viewmodel.request.RequestCollectViewModel
+import me.hgj.jetpackmvvm.demo.viewmodel.request.LoanRecordListViewModel
 import me.hgj.jetpackmvvm.demo.viewmodel.state.WebViewModel
 import me.hgj.jetpackmvvm.ext.nav
 
@@ -44,7 +44,7 @@ class WebFragment : BaseFragment<WebViewModel, FragmentWebBinding>() {
     private var preWeb: AgentWeb.PreAgentWeb? = null
 
     /** */
-    private val requestCollectViewModel: RequestCollectViewModel by viewModels()
+    private val requestCollectViewModel: LoanRecordListViewModel by viewModels()
 
     override fun initView(savedInstanceState: Bundle?) {
         setHasOptionsMenu(true)

@@ -14,6 +14,7 @@ import me.hgj.jetpackmvvm.demo.app.ext.initClose
 import me.hgj.jetpackmvvm.demo.app.ext.showMessage
 import me.hgj.jetpackmvvm.demo.app.util.CacheUtil
 import me.hgj.jetpackmvvm.demo.app.util.SettingUtil
+import me.hgj.jetpackmvvm.demo.data.model.bean.UserInfo
 import me.hgj.jetpackmvvm.demo.databinding.FragmentLoginBinding
 import me.hgj.jetpackmvvm.demo.viewmodel.request.RequestLoginRegisterViewModel
 import me.hgj.jetpackmvvm.demo.viewmodel.state.LoginRegisterViewModel
@@ -36,24 +37,27 @@ class LoginFragment : BaseFragment<LoginRegisterViewModel, FragmentLoginBinding>
 
         mDatabind.click = ProxyClick()
 
-        toolbar.initClose("登录") {
+        toolbar.initClose("") {
             nav().navigateUp()
         }
         //设置颜色跟主题颜色一致
-        appViewModel.appColor.value?.let {
-            SettingUtil.setShapColor(loginSub, it)
-            loginGoregister.setTextColor(it)
-            toolbar.setBackgroundColor(it)
-        }
+//        appViewModel.appColor.value?.let {
+//            SettingUtil.setShapColor(loginSub, it)
+//            loginGoregister.setTextColor(it)
+//            toolbar.setBackgroundColor(it)
+//        }
     }
 
     override fun createObserver() {
         requestLoginRegisterViewModel.loginResult.observe(viewLifecycleOwner,Observer { resultState ->
                 parseState(resultState, {
                     //登录成功 通知账户数据发生改变鸟
-                    CacheUtil.setUser(it)
+                    val userInfo = UserInfo().apply {
+                        token = it
+                    }
+                    CacheUtil.setUser(userInfo)
                     CacheUtil.setIsLogin(true)
-                    appViewModel.userInfo.value = it
+                    appViewModel.userInfo.value = userInfo
                     nav().navigateUp()
                 }, {
                     //登录失败

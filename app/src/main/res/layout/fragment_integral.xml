@@ -24,61 +24,14 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
 
-        <androidx.cardview.widget.CardView
+        <TextView
+            android:id="@+id/addCard"
+            style="@style/ButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/integral_cardview"
-            android:foreground="?android:attr/selectableItemBackground"
-            app:cardBackgroundColor="@color/white"
-            app:cardElevation="16dp">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp">
-
-                <TextView
-                    android:id="@+id/integral_merank"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginLeft="24dp"
-                    android:text="@{String.valueOf(vm.rank.rank)}"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/integral_mename"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:text="@{vm.rank.username}"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="16dp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/integral_merank"
-                    app:layout_constraintStart_toEndOf="@+id/integral_merank"
-                    app:layout_constraintTop_toTopOf="@+id/integral_merank" />
-
-                <TextView
-                    android:id="@+id/integral_mecount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="24dp"
-                    android:text="@{String.valueOf(vm.rank.coinCount)}"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="16dp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/integral_mename"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/integral_mename" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="@dimen/dp_30"
+            android:text="添加银行卡" />
 
     </LinearLayout>
 </layout>

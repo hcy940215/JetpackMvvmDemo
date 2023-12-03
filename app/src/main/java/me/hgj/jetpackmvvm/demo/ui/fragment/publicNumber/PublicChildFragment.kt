@@ -19,7 +19,7 @@ import me.hgj.jetpackmvvm.demo.app.weight.recyclerview.SpaceItemDecoration
 import me.hgj.jetpackmvvm.demo.data.model.bean.CollectBus
 import me.hgj.jetpackmvvm.demo.databinding.IncludeListBinding
 import me.hgj.jetpackmvvm.demo.ui.adapter.AriticleAdapter
-import me.hgj.jetpackmvvm.demo.viewmodel.request.RequestCollectViewModel
+import me.hgj.jetpackmvvm.demo.viewmodel.request.LoanRecordListViewModel
 import me.hgj.jetpackmvvm.demo.viewmodel.request.RequestPublicNumberViewModel
 import me.hgj.jetpackmvvm.demo.viewmodel.state.PublicNumberViewModel
 import me.hgj.jetpackmvvm.ext.nav
@@ -45,7 +45,7 @@ class PublicChildFragment : BaseFragment<PublicNumberViewModel, IncludeListBindi
     private var cid = 0
 
     //收藏viewmodel
-    private val requestCollectViewModel: RequestCollectViewModel by viewModels()
+    private val requestCollectViewModel: LoanRecordListViewModel by viewModels()
 
     //请求viewmodel
     private val requestPublicNumberViewModel: RequestPublicNumberViewModel by viewModels()
@@ -89,18 +89,6 @@ class PublicChildFragment : BaseFragment<PublicNumberViewModel, IncludeListBindi
                 nav().navigateAction(R.id.action_to_webFragment, Bundle().apply {
                     putParcelable("ariticleData", articleAdapter.data[position])
                 })
-            }
-            addChildClickViewIds(R.id.item_home_author, R.id.item_project_author)
-            setOnItemChildClickListener { _, view, position ->
-                when (view.id) {
-                    R.id.item_home_author, R.id.item_project_author -> {
-                        nav().navigateAction(
-                            R.id.action_mainfragment_to_lookInfoFragment,
-                            Bundle().apply {
-                                putInt("id", articleAdapter.data[position].userId)
-                            })
-                    }
-                }
             }
         }
     }

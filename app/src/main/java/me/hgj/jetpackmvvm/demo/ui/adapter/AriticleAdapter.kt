@@ -82,45 +82,6 @@ class AriticleAdapter(data: MutableList<AriticleResponse>?) :
             }
             Project -> {
                 //项目布局的赋值
-                item.run {
-                    helper.setText(
-                        R.id.item_project_author,
-                        if (author.isNotEmpty()) author else shareUser
-                    )
-                    helper.setText(R.id.item_project_title, title.toHtml())
-                    helper.setText(R.id.item_project_content, desc.toHtml())
-                    helper.setText(
-                        R.id.item_project_type,
-                        "$superChapterName·$chapterName".toHtml()
-                    )
-                    helper.setText(R.id.item_project_date, niceDate)
-                    if (showTag) {
-                        //展示标签
-                        helper.setGone(R.id.item_project_new, !fresh)
-                        helper.setGone(R.id.item_project_top, type != 1)
-                        if (tags.isNotEmpty()) {
-                            helper.setGone(R.id.item_project_type1, false)
-                            helper.setText(R.id.item_project_type1, tags[0].name)
-                        } else {
-                            helper.setGone(R.id.item_project_type1, true)
-                        }
-                    } else {
-                        //隐藏所有标签
-                        helper.setGone(R.id.item_project_top, true)
-                        helper.setGone(R.id.item_project_type1, true)
-                        helper.setGone(R.id.item_project_new, true)
-                    }
-                    helper.getView<CollectView>(R.id.item_project_collect).isChecked = collect
-                    Glide.with(context).load(envelopePic)
-                        .transition(DrawableTransitionOptions.withCrossFade(500))
-                        .into(helper.getView(R.id.item_project_imageview))
-                }
-                helper.getView<CollectView>(R.id.item_project_collect)
-                    .setOnCollectViewClickListener(object : CollectView.OnCollectViewClickListener {
-                        override fun onClick(v: CollectView) {
-                            collectAction.invoke(item, v, helper.adapterPosition)
-                        }
-                    })
             }
         }
     }

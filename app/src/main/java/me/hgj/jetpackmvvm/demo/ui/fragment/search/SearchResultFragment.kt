@@ -20,7 +20,7 @@ import me.hgj.jetpackmvvm.demo.app.weight.recyclerview.SpaceItemDecoration
 import me.hgj.jetpackmvvm.demo.data.model.bean.CollectBus
 import me.hgj.jetpackmvvm.demo.databinding.FragmentListBinding
 import me.hgj.jetpackmvvm.demo.ui.adapter.AriticleAdapter
-import me.hgj.jetpackmvvm.demo.viewmodel.request.RequestCollectViewModel
+import me.hgj.jetpackmvvm.demo.viewmodel.request.LoanRecordListViewModel
 import me.hgj.jetpackmvvm.demo.viewmodel.request.RequestSearchViewModel
 import me.hgj.jetpackmvvm.demo.viewmodel.state.SearchViewModel
 import me.hgj.jetpackmvvm.ext.nav
@@ -43,7 +43,7 @@ class SearchResultFragment : BaseFragment<SearchViewModel, FragmentListBinding>(
     private lateinit var loadsir: LoadService<Any>
 
     //收藏viewmodel
-    private val requestCollectViewModel: RequestCollectViewModel by viewModels()
+    private val requestCollectViewModel: LoanRecordListViewModel by viewModels()
 
     /** */
     private val requestSearchViewModel: RequestSearchViewModel by viewModels()
@@ -89,18 +89,6 @@ class SearchResultFragment : BaseFragment<SearchViewModel, FragmentListBinding>(
                 nav().navigateAction(R.id.action_to_webFragment, Bundle().apply {
                     putParcelable("ariticleData", articleAdapter.data[position])
                 })
-            }
-            addChildClickViewIds(R.id.item_home_author, R.id.item_project_author)
-            setOnItemChildClickListener { adapter, view, position ->
-                when (view.id) {
-                    R.id.item_home_author, R.id.item_project_author -> {
-                        nav().navigateAction(
-                            R.id.action_searchResultFragment_to_lookInfoFragment,
-                            Bundle().apply {
-                                putInt("id", articleAdapter.data[position].userId)
-                            })
-                    }
-                }
             }
         }
 

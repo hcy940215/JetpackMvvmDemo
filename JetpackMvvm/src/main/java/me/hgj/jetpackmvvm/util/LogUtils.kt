@@ -16,6 +16,7 @@ object LogUtils {
             return
         }
         Log.d(tag, msg!!)
+        Log.e(DEFAULT_TAG, "$msg")
     }
 
     fun debugInfo(msg: String?) {

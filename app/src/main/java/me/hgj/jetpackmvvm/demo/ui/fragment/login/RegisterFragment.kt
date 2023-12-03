@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.widget.CompoundButton
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import kotlinx.android.synthetic.main.fragment_register.*
 import kotlinx.android.synthetic.main.include_toolbar.*
 import me.hgj.jetpackmvvm.demo.R
 import me.hgj.jetpackmvvm.demo.app.appViewModel
@@ -12,8 +11,8 @@ import me.hgj.jetpackmvvm.demo.app.base.BaseFragment
 import me.hgj.jetpackmvvm.demo.app.ext.initClose
 import me.hgj.jetpackmvvm.demo.app.ext.showMessage
 import me.hgj.jetpackmvvm.demo.app.util.CacheUtil
-import me.hgj.jetpackmvvm.demo.app.util.SettingUtil
-import me.hgj.jetpackmvvm.demo.databinding.FragmentRegisterBinding
+import me.hgj.jetpackmvvm.demo.data.model.bean.UserInfo
+import me.hgj.jetpackmvvm.demo.databinding.FragmentRegisterNewBinding
 import me.hgj.jetpackmvvm.demo.viewmodel.request.RequestLoginRegisterViewModel
 import me.hgj.jetpackmvvm.demo.viewmodel.state.LoginRegisterViewModel
 import me.hgj.jetpackmvvm.ext.nav
@@ -25,7 +24,7 @@ import me.hgj.jetpackmvvm.ext.parseState
  * 时间　: 2019/12/24
  * 描述　:
  */
-class RegisterFrgment : BaseFragment<LoginRegisterViewModel, FragmentRegisterBinding>() {
+class RegisterFragment : BaseFragment<LoginRegisterViewModel, FragmentRegisterNewBinding>() {
 
     private val requestLoginRegisterViewModel:RequestLoginRegisterViewModel by viewModels()
 
@@ -37,8 +36,8 @@ class RegisterFrgment : BaseFragment<LoginRegisterViewModel, FragmentRegisterBin
         }
         //设置颜色跟主题颜色一致
         appViewModel.appColor.value?.let {
-            SettingUtil.setShapColor(registerSub, it)
-            toolbar.setBackgroundColor(it)
+//            SettingUtil.setShapColor(registerSub, it)
+//            toolbar.setBackgroundColor(it)
         }
     }
 
@@ -47,9 +46,11 @@ class RegisterFrgment : BaseFragment<LoginRegisterViewModel, FragmentRegisterBin
             viewLifecycleOwner,
             Observer { resultState ->
                 parseState(resultState, {
+                    val userInfo = UserInfo()
+                    userInfo.token = it
                     CacheUtil.setIsLogin(true)
-                    CacheUtil.setUser(it)
-                    appViewModel.userInfo.value = it
+                    CacheUtil.setUser(userInfo)
+                    appViewModel.userInfo.value = userInfo
                     nav().navigateAction(R.id.action_registerFrgment_to_mainFragment)
                 }, {
                     showMessage(it.errorMsg)
@@ -67,15 +68,38 @@ class RegisterFrgment : BaseFragment<LoginRegisterViewModel, FragmentRegisterBin
         /**注册*/
         fun register() {
             when {
+                mViewModel.realName.get().isEmpty() -> showMessage("请填写姓名")
+                mViewModel.username.get().isEmpty() -> showMessage("请填写手机号")
+                mViewModel.smsCode.get().isEmpty() -> showMessage("请填写验证码")
                 mViewModel.username.get().isEmpty() -> showMessage("请填写账号")
                 mViewModel.password.get().isEmpty() -> showMessage("请填写密码")
                 mViewModel.password2.get().isEmpty() -> showMessage("请填写确认密码")
                 mViewModel.password.get().length < 6 -> showMessage("密码最少6位")
                 mViewModel.password.get() != mViewModel.password2.get() -> showMessage("密码不一致")
-                else -> requestLoginRegisterViewModel.registerAndlogin(
-                    mViewModel.username.get(),
-                    mViewModel.password.get()
+                else -> requestLoginRegisterViewModel.registerAndLogin(
+                    realName = mViewModel.realName.get(),
+                    username = mViewModel.username.get(),
+                    smsCode = mViewModel.smsCode.get(),
+                    password = mViewModel.password.get(),
                 )
+            }
+        }
+
+        fun getCode() {
+
+            if (mViewModel.username.get().length != 11) {
+                showMessage(getString(R.string.common_phone_input_error))
+            }
+
+            if (true) {
+                showMessage(getString(R.string.common_code_send_hint))
+                mDatabind.cvRegisterCountdown.start()
+            }
+
+            when {
+                mViewModel.username.get().isEmpty() -> showMessage("请填写手机号")
+                mViewModel.username.get().length != 11 -> showMessage("请填写正确的手机号")
+                else -> requestLoginRegisterViewModel.getSmsCode(username = mViewModel.username.get())
             }
         }
 

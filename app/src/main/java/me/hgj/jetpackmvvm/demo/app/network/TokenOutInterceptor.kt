@@ -27,13 +27,13 @@ class TokenOutInterceptor : Interceptor {
             val string = response.body()!!.string()
             val responseBody = ResponseBody.create(mediaType, string)
             val apiResponse = gson.fromJson(string, ApiResponse::class.java)
-            //判断逻辑 模拟一下
-            if (apiResponse.errorCode == 99999) {
-                //如果是普通的activity话 可以直接跳转，如果是navigation中的fragment，可以发送通知跳转
-                appContext.startActivity(Intent(appContext, TestActivity::class.java).apply {
-                    flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                })
-            }
+//            //判断逻辑 模拟一下
+//            if (apiResponse.code == 99999) {
+//                //如果是普通的activity话 可以直接跳转，如果是navigation中的fragment，可以发送通知跳转
+//                appContext.startActivity(Intent(appContext, TestActivity::class.java).apply {
+//                    flags = Intent.FLAG_ACTIVITY_NEW_TASK
+//                })
+//            }
             response.newBuilder().body(responseBody).build()
         } else {
             response

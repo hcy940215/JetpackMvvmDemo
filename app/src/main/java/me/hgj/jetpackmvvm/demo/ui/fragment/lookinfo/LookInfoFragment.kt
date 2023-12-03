@@ -20,7 +20,7 @@ import me.hgj.jetpackmvvm.demo.app.weight.recyclerview.SpaceItemDecoration
 import me.hgj.jetpackmvvm.demo.data.model.bean.CollectBus
 import me.hgj.jetpackmvvm.demo.databinding.FragmentLookinfoBinding
 import me.hgj.jetpackmvvm.demo.ui.adapter.AriticleAdapter
-import me.hgj.jetpackmvvm.demo.viewmodel.request.RequestCollectViewModel
+import me.hgj.jetpackmvvm.demo.viewmodel.request.LoanRecordListViewModel
 import me.hgj.jetpackmvvm.demo.viewmodel.request.RequestLookInfoViewModel
 import me.hgj.jetpackmvvm.demo.viewmodel.state.LookInfoViewModel
 import me.hgj.jetpackmvvm.ext.nav
@@ -43,7 +43,7 @@ class LookInfoFragment : BaseFragment<LookInfoViewModel, FragmentLookinfoBinding
     private val articleAdapter: AriticleAdapter by lazy { AriticleAdapter(arrayListOf(), true) }
 
     //收藏viewmodel
-    private val requestCollectViewModel: RequestCollectViewModel by viewModels()
+    private val requestCollectViewModel: LoanRecordListViewModel by viewModels()
 
     //专门负责请求数据的ViewModel
     private val requestLookInfoViewModel: RequestLookInfoViewModel by viewModels()

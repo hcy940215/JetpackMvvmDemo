@@ -38,8 +38,8 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
         <action
-            android:id="@+id/action_mainfragment_to_collectFragment"
-            app:destination="@id/collectFragment"
+            android:id="@+id/action_mainfragment_to_bankcardFragment"
+            app:destination="@id/bankcardFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
@@ -90,7 +90,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFrgment"
-        android:name="me.hgj.jetpackmvvm.demo.ui.fragment.login.RegisterFrgment"
+        android:name="me.hgj.jetpackmvvm.demo.ui.fragment.login.RegisterFragment"
         android:label="RegisterFrgment">
 
         <action
@@ -168,7 +168,7 @@
         android:label="LookInfoFragment" />
     <fragment
         android:id="@+id/integralFragment"
-        android:name="me.hgj.jetpackmvvm.demo.ui.fragment.integral.IntegralFragment"
+        android:name="me.hgj.jetpackmvvm.demo.ui.fragment.integral.BRRecordFragment"
         android:label="IntegralFragment">
         <action
             android:id="@+id/action_integralFragment_to_integralHistoryFragment"
@@ -184,9 +184,23 @@
         android:label="IntegralHistoryFragment" />
 
     <fragment
-        android:id="@+id/collectFragment"
-        android:name="me.hgj.jetpackmvvm.demo.ui.fragment.collect.CollectFragment"
-        android:label="CollectFragment" />
+        android:id="@+id/bankcardFragment"
+        android:name="me.hgj.jetpackmvvm.demo.ui.fragment.collect.BankCardNewFragment"
+        android:label="CollectFragment">
+
+        <action
+            android:id="@+id/action_bankcardFragment_to_bankcardFragment"
+            app:destination="@id/bankcardAddFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bankcardAddFragment"
+        android:name="me.hgj.jetpackmvvm.demo.ui.fragment.collect.BankCardAddFragment"
+        android:label="BankCardAddFragment" />
 
     <fragment
         android:id="@+id/addAriticleFragment"
