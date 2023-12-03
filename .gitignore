@@ -12,3 +12,6 @@
 /captures
 .externalNativeBuild
 .cxx
+/library/base/build/
+/library/widget/build/
+/.idea/
