@@ -99,7 +99,7 @@ class HttpRequestManger {
         bankName: String? = "",
     ): ApiResponse<Any> {
         val jsonObject = JSONObject()
-        jsonObject.put("holderName:",realName)
+        jsonObject.put("holderName",realName)
         jsonObject.put("phone",username)
         jsonObject.put("smsCode",smsCode)
         jsonObject.put("cardNo",cardNum)

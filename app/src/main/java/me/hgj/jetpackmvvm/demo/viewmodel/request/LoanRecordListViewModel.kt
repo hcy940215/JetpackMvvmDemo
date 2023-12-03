@@ -7,6 +7,8 @@ import me.hgj.jetpackmvvm.demo.app.network.stateCallback.CollectUiState
 import me.hgj.jetpackmvvm.demo.app.network.stateCallback.ListDataUiState
 import me.hgj.jetpackmvvm.demo.data.model.bean.CollectUrlResponse
 import me.hgj.jetpackmvvm.demo.data.model.bean.LoanRecordResponse
+import me.hgj.jetpackmvvm.demo.data.model.bean.RepaymentItemResponse
+import me.hgj.jetpackmvvm.demo.data.model.bean.RepaymentResponse
 import me.hgj.jetpackmvvm.ext.request
 
 open class LoanRecordListViewModel : BaseViewModel() {
@@ -36,6 +38,11 @@ open class LoanRecordListViewModel : BaseViewModel() {
     }
 
     var loanListDataState: MutableLiveData<ListDataUiState<LoanRecordResponse>> = MutableLiveData()
+
+
+    var repaymentListDataState: MutableLiveData<ListDataUiState<RepaymentItemResponse>> = MutableLiveData()
+
+    var repaymentDataState: MutableLiveData<RepaymentResponse> = MutableLiveData()
 
     /**
      * 借还记录接口
@@ -81,5 +88,34 @@ open class LoanRecordListViewModel : BaseViewModel() {
     fun collectUrl(name: String, link: String) {
 
     }
+
+
+    fun selectBRepayment() {
+        request({ apiService.selectBRepayment() }, {
+            //请求成功
+            val listDataUiState =
+                ListDataUiState(
+                    isSuccess = true,
+                    isRefresh = true,
+                    isEmpty = it.bRepayments.isEmpty(),
+                    hasMore = false,
+                    isFirstEmpty = it.bRepayments.isEmpty(),
+                    listData = it.bRepayments
+                )
+            repaymentDataState.value = it
+            repaymentListDataState.value = listDataUiState
+        }, {
+            //请求失败
+            val listDataUiState =
+                ListDataUiState(
+                    isSuccess = false,
+                    errMessage = it.errorMsg,
+                    isRefresh = true,
+                    listData = arrayListOf<RepaymentItemResponse>()
+                )
+            repaymentListDataState.value = listDataUiState
+        })
+    }
+
 
 }

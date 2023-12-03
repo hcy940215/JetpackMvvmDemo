@@ -88,10 +88,9 @@ interface ApiService {
     /**
      * 生成还款计划
      */
-    @HTTP(method = "POST", path = "/Apploan/selectBRepayment", hasBody = true)
+    @HTTP(method = "GET", path = "/Apploan/selectBRepayment", hasBody = false)
     suspend fun selectBRepayment(
-        @Body body: RequestBody,
-    ): ApiResponse<Any>
+    ): ApiResponse<RepaymentResponse>
 
     /**
      * 立即支付接口

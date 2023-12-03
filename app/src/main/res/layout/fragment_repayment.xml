@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -40,9 +41,10 @@
                 android:textColor="#ff000000"
                 android:textSize="14sp" />
             <TextView
+                android:id="@+id/tv_repayment_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2,072.87"
+                tools:text="2,072.87"
                 android:textStyle="bold"
                 android:layout_marginTop="@dimen/dp_15"
                 android:textColor="#ff000000"
@@ -50,21 +52,23 @@
                 />
 
             <TextView
+                android:id="@+id/tv_repayment_date"
                 android:layout_marginTop="@dimen/dp_5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12月12日（剩余14天）待还690.97元"
+                tools:text="12月12日（剩余14天）待还690.97元"
                 android:textColor="#ff666666"
                 android:textSize="13sp"
                 />
         </LinearLayout>
 
         <TextView
+            android:id="@+id/tv_repayment_num"
             android:layout_marginVertical="@dimen/dp_12"
             android:layout_width="wrap_content"
             android:layout_marginLeft="@dimen/dp_15"
             android:layout_height="wrap_content"
-            android:text="使用中的贷款(共1笔)"
+            tools:text="使用中的贷款(共1笔)"
             android:textColor="#ff000000"
             android:textSize="15sp"
             />
