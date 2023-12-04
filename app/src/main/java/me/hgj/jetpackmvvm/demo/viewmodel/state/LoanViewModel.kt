@@ -3,15 +3,12 @@ package me.hgj.jetpackmvvm.demo.viewmodel.state
 import me.hgj.jetpackmvvm.base.viewmodel.BaseViewModel
 import me.hgj.jetpackmvvm.callback.databind.StringObservableField
 
-/**
- * 作者　: hegaojian
- * 时间　: 2019/12/23
- * 描述　:登录注册的ViewModel
- */
-class NewLoanUserInfoViewModel : BaseViewModel() {
+class LoanViewModel : BaseViewModel() {
 
-    //姓名
-    var realName = StringObservableField()
+    var price = StringObservableField()
+    var month = StringObservableField()
+    var returnPay = StringObservableField()
+    var bank = StringObservableField()
 
     var age = StringObservableField()
 

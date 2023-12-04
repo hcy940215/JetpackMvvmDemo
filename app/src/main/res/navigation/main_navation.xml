@@ -219,7 +219,19 @@
     <fragment
         android:id="@+id/newLoanUserInfoFragment"
         android:name="me.hgj.jetpackmvvm.demo.ui.fragment.collect.NewLoanUserInfoFragment"
-        android:label="NewLoanUserInfoFragment" />
+        android:label="NewLoanUserInfoFragment" >
+        <action
+            android:id="@+id/action_newLoanUserInfoFragment_to_loanFragment"
+            app:destination="@id/loanFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/loanFragment"
+        android:name="me.hgj.jetpackmvvm.demo.ui.fragment.collect.LoanFragment"
+        android:label="LoanFragment" />
 
     <fragment
         android:id="@+id/addAriticleFragment"

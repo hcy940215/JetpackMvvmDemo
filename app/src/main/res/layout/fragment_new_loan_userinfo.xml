@@ -195,6 +195,8 @@
 
                         <TextView
                             style="@style/EditTextStyle"
+                            android:onClick="@{()->click.showDialog()}"
+                            android:text="@={viewmodel.payUse}"
                             android:hint="请选择" />
 
                     </LinearLayout>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="me.hgj.jetpackmvvm.demo.viewmodel.state.LoanViewModel" />
+
+        <variable
+            name="click"
+            type="me.hgj.jetpackmvvm.demo.ui.fragment.collect.LoanFragment.ProxyClick" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/icon_bg"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_80"
+            android:text="贷Job"
+            android:textColor="#ffffffff"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_20"
+            app:cardCornerRadius="@dimen/dp_8"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center_horizontal"
+                android:layoutAnimation="@anim/layout_fall_down"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/dp_23"
+                tools:layoutAnimation="@null">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/dp_15"
+                    android:text="可借款额度(￥100,000）"
+                    android:textColor="#ff999999"
+                    android:textSize="13sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <TextView
+                        style="@style/TextStyle"
+                        android:layout_weight="0"
+                        android:layout_width="wrap_content"
+                        android:text="￥" />
+
+                    <com.hjq.widget.view.RegexEditText
+                        android:id="@+id/et_register_real_name"
+                        style="@style/EditTextStyle"
+                        android:hint="请输入借款金额"
+                        android:inputType="textVisiblePassword"
+                        android:maxLength="10"
+                        android:singleLine="true"
+                        android:text="@={viewmodel.price}"
+                        app:regexType="number" />
+                </LinearLayout>
+
+                <View style="@style/HorizontalLineStyle" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            style="@style/TextStyle"
+                            android:text="借多久" />
+
+                        <TextView
+                            style="@style/EditTextStyle"
+                            android:hint="请选择"
+                            android:gravity="end|center_vertical"
+                            android:paddingEnd="@dimen/dp_40"
+                            android:onClick="@{()->click.showDialog()}"
+                            android:text="@={viewmodel.month}" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:src="@mipmap/my_icon_arrow"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View style="@style/HorizontalLineStyle" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            style="@style/TextStyle"
+                            android:text="怎么还" />
+
+                        <TextView
+                            style="@style/EditTextStyle"
+                            android:hint="请选择"
+                            android:gravity="end|center_vertical"
+                            android:paddingEnd="@dimen/dp_40"
+                            android:onClick="@{()->click.showDialog()}"
+                            android:text="@={viewmodel.returnPay}" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:src="@mipmap/my_icon_arrow"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View style="@style/HorizontalLineStyle" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            style="@style/TextStyle"
+                            android:text="收款账户" />
+
+                        <TextView
+                            style="@style/EditTextStyle"
+                            android:hint="请选择"
+                            android:gravity="end|center_vertical"
+                            android:paddingEnd="@dimen/dp_40"
+                            android:onClick="@{()->click.showDialog()}"
+                            android:text="@={viewmodel.bank}" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:src="@mipmap/my_icon_arrow"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    style="@style/HorizontalLineStyle"
+                    android:layout_marginBottom="@dimen/dp_15" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            style="@style/TextStyle"
+                            android:text="身份证件" />
+
+                        <TextView
+                            style="@style/EditTextStyle"
+                            android:hint="点击上传" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:src="@mipmap/my_icon_arrow"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="@dimen/dp_40"
+            android:enabled="true"
+            android:onClick="@{()->click.register()}"
+            android:text="确定" />
+    </LinearLayout>
+
+</layout>

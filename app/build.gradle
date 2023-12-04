@@ -136,4 +136,8 @@ dependencies {
     implementation project(':library:base')
     // 控件封装
     implementation project(':library:widget')
+
+    // Shape 框架：https://github.com/getActivity/ShapeView
+    implementation 'com.github.getActivity:ShapeView:6.0'
+
 }
