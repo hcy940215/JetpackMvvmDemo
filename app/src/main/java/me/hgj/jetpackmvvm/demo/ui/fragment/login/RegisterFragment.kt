@@ -56,6 +56,14 @@ class RegisterFragment : BaseFragment<LoginRegisterViewModel, FragmentRegisterNe
                     showMessage(it.errorMsg)
                 })
             })
+
+        appViewModel.userCardId1LiveData.observeInFragment(this, Observer {
+            mViewModel.cardId1.set(it)
+        })
+
+        appViewModel.userCardId2LiveData.observeInFragment(this, Observer {
+            mViewModel.cardId2.set(it)
+        })
     }
 
 
@@ -74,6 +82,8 @@ class RegisterFragment : BaseFragment<LoginRegisterViewModel, FragmentRegisterNe
                 mViewModel.username.get().isEmpty() -> showMessage("请填写账号")
                 mViewModel.password.get().isEmpty() -> showMessage("请填写密码")
                 mViewModel.password2.get().isEmpty() -> showMessage("请填写确认密码")
+                mViewModel.cardId1.get().isEmpty() -> showMessage("请上传身份证正面")
+                mViewModel.cardId2.get().isEmpty() -> showMessage("请上传身份证反面")
                 mViewModel.password.get().length < 6 -> showMessage("密码最少6位")
                 mViewModel.password.get() != mViewModel.password2.get() -> showMessage("密码不一致")
                 else -> requestLoginRegisterViewModel.registerAndLogin(
@@ -101,6 +111,10 @@ class RegisterFragment : BaseFragment<LoginRegisterViewModel, FragmentRegisterNe
                 mViewModel.username.get().length != 11 -> showMessage("请填写正确的手机号")
                 else -> requestLoginRegisterViewModel.getSmsCode(username = mViewModel.username.get())
             }
+        }
+
+        fun uploadCard() {
+            nav().navigateAction(R.id.action_registerFragment_to_userCardFragment)
         }
 
         var onCheckedChangeListener1 = CompoundButton.OnCheckedChangeListener { _, isChecked ->

@@ -1,18 +1,18 @@
 package me.hgj.jetpackmvvm.demo.ui.fragment.home
 
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import com.orhanobut.logger.Logger
 import me.hgj.jetpackmvvm.demo.R
 import me.hgj.jetpackmvvm.demo.app.appViewModel
 import me.hgj.jetpackmvvm.demo.app.base.BaseFragment
-import me.hgj.jetpackmvvm.demo.app.base.BaseFragment1
 import me.hgj.jetpackmvvm.demo.app.eventViewModel
-import me.hgj.jetpackmvvm.demo.app.ext.*
+import me.hgj.jetpackmvvm.demo.app.ext.setUiTheme
 import me.hgj.jetpackmvvm.demo.databinding.FragmentHomeNewBinding
 import me.hgj.jetpackmvvm.demo.viewmodel.state.HomeViewModel
-import me.hgj.jetpackmvvm.ext.nav
-import me.hgj.jetpackmvvm.ext.navigateAction
+import shark.SharkLog
 
 /**
  * 作者　: hegaojian
@@ -23,6 +23,8 @@ class HomeNewFragment : BaseFragment<HomeViewModel, FragmentHomeNewBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
         mDatabind.tvHome.setOnClickListener {
+            Logger.e("点击了")
+            Log.e("TAG", "initView: ")
             findNavController().navigate(R.id.newLoanUserInfoFragment)
         }
     }

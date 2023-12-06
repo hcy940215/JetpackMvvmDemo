@@ -140,4 +140,6 @@ dependencies {
     // Shape 框架：https://github.com/getActivity/ShapeView
     implementation 'com.github.getActivity:ShapeView:6.0'
 
+        implementation 'com.github.esafirm:android-image-picker:3.0.0'
+
 }

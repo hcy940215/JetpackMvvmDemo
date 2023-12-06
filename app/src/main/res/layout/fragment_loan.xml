@@ -58,13 +58,12 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
+                    android:layout_height="wrap_content">
 
                     <TextView
                         style="@style/TextStyle"
-                        android:layout_weight="0"
                         android:layout_width="wrap_content"
+                        android:layout_weight="0"
                         android:text="￥" />
 
                     <com.hjq.widget.view.RegexEditText
@@ -74,7 +73,7 @@
                         android:inputType="textVisiblePassword"
                         android:maxLength="10"
                         android:singleLine="true"
-                        android:text="@={viewmodel.price}"
+                        android:text="@={viewmodel.loanAmount}"
                         app:regexType="number" />
                 </LinearLayout>
 
@@ -93,14 +92,16 @@
 
                         <TextView
                             style="@style/TextStyle"
+                            android:layout_weight="0"
+                            android:layout_width="wrap_content"
                             android:text="借多久" />
 
                         <TextView
                             style="@style/EditTextStyle"
-                            android:hint="请选择"
                             android:gravity="end|center_vertical"
+                            android:hint="请选择"
+                            android:onClick="@{()->click.showMonthDialog()}"
                             android:paddingEnd="@dimen/dp_40"
-                            android:onClick="@{()->click.showDialog()}"
                             android:text="@={viewmodel.month}" />
 
                     </LinearLayout>
@@ -120,8 +121,7 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
+                    android:layout_height="wrap_content">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -130,16 +130,50 @@
                         app:layout_constraintTop_toTopOf="parent">
 
                         <TextView
+                            android:layout_weight="0"
+                            android:layout_width="wrap_content"
                             style="@style/TextStyle"
                             android:text="怎么还" />
 
-                        <TextView
-                            style="@style/EditTextStyle"
-                            android:hint="请选择"
-                            android:gravity="end|center_vertical"
-                            android:paddingEnd="@dimen/dp_40"
-                            android:onClick="@{()->click.showDialog()}"
-                            android:text="@={viewmodel.returnPay}" />
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:onClick="@{()->click.showPayMethodDialog()}"
+                            android:orientation="vertical"
+                            android:paddingVertical="@dimen/dp_5"
+                            android:paddingEnd="@dimen/dp_40">
+
+                            <TextView
+                                style="@style/EditTextStyle"
+                                android:hint="请选择"
+                                android:layout_width="match_parent"
+                                android:gravity="end|center_vertical"
+                                tools:visibility="visible"
+                                android:visibility="@{viewmodel.clearVisible}"
+                                />
+
+                            <TextView
+                                android:id="@+id/tv_repay_amount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
+                                android:visibility="@{viewmodel.repayVisible}"
+                                tools:text="预计01/02首次还款，应还￥183.09"
+                                android:textColor="#ff666666"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/tv_repay_method"
+                                android:layout_width="match_parent"
+                                android:gravity="end"
+                                android:visibility="@{viewmodel.repayVisible}"
+                                android:layout_height="wrap_content"
+                                tools:text="按月计息"
+                                android:textColor="#ff666666"
+                                android:textSize="7sp"
+                                />
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -166,15 +200,17 @@
                         app:layout_constraintTop_toTopOf="parent">
 
                         <TextView
+                            android:layout_weight="0"
+                            android:layout_width="wrap_content"
                             style="@style/TextStyle"
                             android:text="收款账户" />
 
                         <TextView
                             style="@style/EditTextStyle"
-                            android:hint="请选择"
                             android:gravity="end|center_vertical"
+                            android:hint="请选择"
+                            android:onClick="@{()->click.showBankDialog()}"
                             android:paddingEnd="@dimen/dp_40"
-                            android:onClick="@{()->click.showDialog()}"
                             android:text="@={viewmodel.bank}" />
 
                     </LinearLayout>

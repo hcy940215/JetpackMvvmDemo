@@ -28,4 +28,7 @@ class NewLoanUserInfoViewModel : BaseViewModel() {
 
     var payUse = StringObservableField()
 
+    var cardId1 = StringObservableField()
+    var cardId2 = StringObservableField()
+
 }

@@ -24,6 +24,18 @@ import me.hgj.jetpackmvvm.ext.view.textString
  */
 object CustomBindAdapter {
 
+    @BindingAdapter("android:src")
+    @JvmStatic
+    fun setSrcImage(view: ImageView, resId: Int) {
+        view.setImageResource(resId)
+    }
+
+    @BindingAdapter("isSelect")
+    @JvmStatic
+    fun setSelect(view: View, select: Boolean) {
+        view.isSelected = select
+    }
+
     @BindingAdapter(value = ["checkChange"])
     @JvmStatic
     fun checkChange(checkbox: CheckBox, listener: CompoundButton.OnCheckedChangeListener) {

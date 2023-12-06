@@ -20,5 +20,6 @@ data class RepaymentItemResponse(
     var bRepaymentInfor: String?,//": "31天后待还224.54元",
     var repayMethod: String?,//": "每月等额",
     var loanRate: String?,//": 0.03//利率
+    var repayAmount:String?
 ) : Parcelable
 

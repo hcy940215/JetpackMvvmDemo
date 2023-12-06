@@ -11,10 +11,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import me.hgj.jetpackmvvm.R
 import me.hgj.jetpackmvvm.base.viewmodel.BaseViewModel
 import me.hgj.jetpackmvvm.ext.getVmClazz
+import me.hgj.jetpackmvvm.ext.nav
 import me.hgj.jetpackmvvm.network.manager.NetState
 import me.hgj.jetpackmvvm.network.manager.NetworkStateManager
+import me.hgj.jetpackmvvm.network.manager.TokenOutManager
 
 /**
  * 作者　: hegaojian
@@ -112,6 +115,10 @@ abstract class BaseVmFragment<VM : BaseViewModel> : Fragment() {
                     })
                 isFirst = false
             },lazyLoadTime())
+        }
+
+        TokenOutManager.instance.mTokenOutCallback.observeInFragment(this) {
+            nav().navigate(R.id.loginToFragment)
         }
     }
 

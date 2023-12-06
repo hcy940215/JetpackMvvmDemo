@@ -25,6 +25,14 @@ class AppViewModel : BaseViewModel() {
     //App 列表动画
     var appAnimation = EventLiveData<Int>()
 
+    var cardIdLiveData = EventLiveData<String>()
+
+    var userCardId1LiveData = EventLiveData<String>()
+    var userCardId2LiveData = EventLiveData<String>()
+
+    var cardNameLiveData = EventLiveData<String>()
+    var refreshLiveData = EventLiveData<String>()
+
     init {
         //默认值保存的账户信息，没有登陆过则为null
         userInfo.value = CacheUtil.getUser()

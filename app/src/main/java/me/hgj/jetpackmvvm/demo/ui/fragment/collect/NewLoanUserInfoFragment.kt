@@ -48,9 +48,21 @@ class NewLoanUserInfoFragment :
                 mViewModel.cardNum.get().isEmpty() -> showMessage("请填写证件号码")
                 mViewModel.work.get().isEmpty() -> showMessage("请填写工作收入")
                 mViewModel.payUse.get().isEmpty() -> showMessage("请选择贷款用途")
-                else -> /*requestViewModel.newLoan()*/
-                    nav().navigateAction(R.id.action_newLoanUserInfoFragment_to_loanFragment)
+                mViewModel.score.get().isEmpty() -> showMessage("请填写信用分数")
+                else -> {
+                    nav().navigateAction(
+                        R.id.action_newLoanUserInfoFragment_to_userInfoFaceFragment,
+                        Bundle().apply {
+                            putString("realName", mViewModel.realName.get())
+                            putString("username", mViewModel.username.get())
+                            putString("age", mViewModel.age.get())
+                            putString("cardNum", mViewModel.cardNum.get())
+                            putString("work", mViewModel.work.get())
+                            putString("payUse", mViewModel.payUse.get())
+                            putString("score", mViewModel.score.get())
+                        })
 
+                }
             }
         }
 

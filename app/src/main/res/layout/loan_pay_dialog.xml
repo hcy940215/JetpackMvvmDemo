@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.hjq.shape.layout.ShapeConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    app:shape="rectangle"
+    app:shape_radius="@dimen/dp_20"
+    app:shape_solidColor="@color/white">
+
+    <com.hjq.shape.layout.ShapeRecyclerView
+        android:id="@+id/rv_album_list"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_400"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="@dimen/dp_12"
+        android:layout_marginBottom="@dimen/dp_30"
+        android:layoutAnimation="@anim/layout_from_bottom"
+        android:maxHeight="@dimen/dp_400"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:context="me.hgj.jetpackmvvm.demo.app.weight.PayUseDialog"
+        tools:itemCount="5"
+        tools:layoutAnimation="@null"
+        tools:listitem="@layout/album_item" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_15"
+        android:layout_marginBottom="@dimen/dp_15"
+        android:text="怎么还"
+        android:textColor="#ff333333"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/cl_info"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_15"
+        android:src="@mipmap/icon_close"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/cl_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_10"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/rv_album_list"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_return_type_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_5"
+                android:layout_weight="1"
+                android:background="@drawable/pay_return_radiobutton_selector"
+                android:gravity="center"
+                android:paddingVertical="@dimen/dp_15"
+                android:text="每月等额\n每月还款金额相同"
+                android:textColor="@color/bottom_selector"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_return_type_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_5"
+                android:layout_weight="1"
+                android:background="@drawable/pay_return_radiobutton_selector"
+                android:gravity="center"
+                android:paddingVertical="@dimen/dp_15"
+                android:text="先息后本\n先还利息，到期还本金"
+                android:textColor="@color/bottom_selector"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_10"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_return_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="借满6期，应还总额"
+                android:textColor="#ff000000"
+                android:textSize="14sp" />
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dp_10"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="借款本金"
+                android:textColor="#ff666666"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_loan_money"
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="wrap_content"
+                android:textColor="#ff000000"
+                android:textSize="14sp"
+                tools:text="￥2000.00" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_10"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_pay_return"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="￥2072.87"
+                android:textColor="#ff000000"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dp_10"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="总利息"
+                android:textColor="#ff666666"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_interest"
+                android:layout_width="@dimen/dp_80"
+                android:layout_height="wrap_content"
+                android:textColor="#ff000000"
+                android:textSize="14sp"
+                tools:text="￥2000.00" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.hjq.shape.layout.ShapeConstraintLayout>
+

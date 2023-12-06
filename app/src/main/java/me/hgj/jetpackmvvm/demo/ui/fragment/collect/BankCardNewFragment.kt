@@ -10,9 +10,11 @@ import kotlinx.android.synthetic.main.include_list.*
 import kotlinx.android.synthetic.main.include_recyclerview.*
 import kotlinx.android.synthetic.main.include_toolbar.*
 import me.hgj.jetpackmvvm.demo.R
+import me.hgj.jetpackmvvm.demo.app.appViewModel
 import me.hgj.jetpackmvvm.demo.app.base.BaseFragment
 import me.hgj.jetpackmvvm.demo.app.ext.*
 import me.hgj.jetpackmvvm.demo.app.weight.recyclerview.SpaceItemDecoration
+import me.hgj.jetpackmvvm.demo.data.model.bean.BankCardResponse
 import me.hgj.jetpackmvvm.demo.databinding.FragmentIntegralBinding
 import me.hgj.jetpackmvvm.demo.ui.adapter.BankCardListAdapter
 import me.hgj.jetpackmvvm.demo.viewmodel.request.BankCardViewModel
@@ -53,7 +55,18 @@ class BankCardNewFragment : BaseFragment<BankCardViewModel, FragmentIntegralBind
             mViewModel.getBankCardList(true)
         }
         loanRecordAdapter.run {
-            setOnItemClickListener { _, view, position ->
+            setOnItemClickListener { adapter, view, position ->
+                val item = adapter.getItem(position) as BankCardResponse
+                arguments?.let {
+                    val boolean = it.getBoolean("isSelect")
+                    if (boolean) {
+                        appViewModel.cardIdLiveData.value = item.cardId
+                        val takeLast = item.cardNo?.takeLast(4)?:""
+                        appViewModel.cardNameLiveData.value = "${item.bank}($takeLast)"
+                        nav().navigateUp()
+                    }
+                }
+
             }
         }
 

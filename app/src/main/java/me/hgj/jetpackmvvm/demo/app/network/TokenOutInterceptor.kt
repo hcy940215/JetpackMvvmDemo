@@ -1,10 +1,8 @@
 package me.hgj.jetpackmvvm.demo.app.network
 
-import android.content.Intent
 import com.google.gson.Gson
-import me.hgj.jetpackmvvm.base.appContext
 import me.hgj.jetpackmvvm.demo.data.model.bean.ApiResponse
-import me.hgj.jetpackmvvm.demo.ui.activity.TestActivity
+import me.hgj.jetpackmvvm.network.manager.TokenOutManager
 import okhttp3.Interceptor
 import okhttp3.Response
 import okhttp3.ResponseBody
@@ -33,6 +31,7 @@ class TokenOutInterceptor : Interceptor {
 //                appContext.startActivity(Intent(appContext, TestActivity::class.java).apply {
 //                    flags = Intent.FLAG_ACTIVITY_NEW_TASK
 //                })
+                TokenOutManager.instance.mTokenOutCallback.postValue("")
             }
             response.newBuilder().body(responseBody).build()
         } else {

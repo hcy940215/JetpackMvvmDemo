@@ -91,7 +91,7 @@
     </fragment>
 
     <fragment
-        android:id="@+id/loginFragment"
+        android:id="@id/loginToFragment"
         android:name="me.hgj.jetpackmvvm.demo.ui.fragment.login.LoginFragment"
         android:label="LoginFragment">
         <action
@@ -121,7 +121,16 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
-            app:popUpTo="@id/loginFragment" />
+             />
+
+        <action
+            android:id="@+id/action_registerFragment_to_userCardFragment"
+            app:destination="@id/userCardFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+             />
 
         <action
             android:id="@+id/action_registerFrgment_to_searchResultFragment"
@@ -162,12 +171,38 @@
         android:id="@+id/webFragment"
         android:name="me.hgj.jetpackmvvm.demo.ui.fragment.web.WebFragment"
         android:label="WebFragment" />
+    <fragment
+        android:id="@+id/userCardFragment"
+        android:name="me.hgj.jetpackmvvm.demo.ui.fragment.collect.UserInfoCardIdFragment"
+        android:label="userCardFragment" >
+        <action
+            android:id="@+id/action_userCardFragment_to_loginFragment"
+            app:destination="@id/loginToFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+             />
+    </fragment>
+    <fragment
+        android:id="@+id/userInfoFaceFragment"
+        android:name="me.hgj.jetpackmvvm.demo.ui.fragment.collect.UserInfoFaceFragment"
+        android:label="UserInfoFaceFragment" >
+        <action
+            android:id="@+id/action_userInfoFaceFragment_to_loanFragment"
+            app:destination="@id/loanFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+             />
+    </fragment>
 
     <fragment
         android:id="@+id/systemArrFragment"
         android:name="me.hgj.jetpackmvvm.demo.ui.fragment.tree.SystemArrFragment"
         android:label="SystemArrFragment"
-        app:destination="@id/loginFragment">
+        app:destination="@id/loginToFragment">
         <action
             android:id="@+id/action_systemArrFragment_to_lookInfoFragment"
             app:destination="@id/lookInfoFragment"
@@ -219,14 +254,16 @@
     <fragment
         android:id="@+id/newLoanUserInfoFragment"
         android:name="me.hgj.jetpackmvvm.demo.ui.fragment.collect.NewLoanUserInfoFragment"
-        android:label="NewLoanUserInfoFragment" >
+        android:label="NewLoanUserInfoFragment">
+
         <action
-            android:id="@+id/action_newLoanUserInfoFragment_to_loanFragment"
-            app:destination="@id/loanFragment"
+            android:id="@+id/action_newLoanUserInfoFragment_to_userInfoFaceFragment"
+            app:destination="@id/userInfoFaceFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
+            app:popExitAnim="@anim/slide_out_right"
+             />
     </fragment>
     <fragment
         android:id="@+id/loanFragment"
@@ -249,6 +286,32 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
     </fragment>
+    <fragment
+        android:id="@+id/brepaymentFragment"
+        android:name="me.hgj.jetpackmvvm.demo.ui.fragment.integral.BRepaymentFragment"
+        android:label="BRepaymentFragment">
+        <action
+            android:id="@+id/action_brepaymentFragment_to_returnMoneyFragment"
+            app:destination="@id/returnMoneyFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/returnMoneyFragment"
+        android:name="me.hgj.jetpackmvvm.demo.ui.fragment.integral.ReturnMoneyFragment"
+        android:label="BRepaymentFragment" >
+        <action
+            android:id="@+id/action_returnMoneyFragment_to_bankcardFragment"
+            app:destination="@id/bankcardFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
     <fragment
         android:id="@+id/todoListFragment"
         android:name="me.hgj.jetpackmvvm.demo.ui.fragment.todo.TodoListFragment"
@@ -275,7 +338,7 @@
         app:popExitAnim="@anim/slide_out_right" />
     <action
         android:id="@+id/action_to_loginFragment"
-        app:destination="@id/loginFragment"
+        app:destination="@id/loginToFragment"
         app:enterAnim="@anim/slide_in_right"
         app:exitAnim="@anim/slide_out_left"
         app:popEnterAnim="@anim/slide_in_left"

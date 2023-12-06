@@ -52,7 +52,7 @@
                         android:id="@+id/et_register_real_name"
                         style="@style/EditTextStyle"
                         android:hint="请输入您的姓名"
-                        android:inputType="textVisiblePassword"
+                        android:inputType="text"
                         android:maxLength="@integer/sms_code_length"
                         android:singleLine="true"
                         android:text="@={viewmodel.realName}"
@@ -148,10 +148,10 @@
                         android:id="@+id/et_register_phone"
                         style="@style/EditTextStyle"
                         android:hint="请输入您的手机号码"
-                        android:inputType="textVisiblePassword"
+                        android:inputType="number"
                         android:singleLine="true"
                         android:text="@={viewmodel.username}"
-                        app:regexType="number" />
+                        app:regexType="mobile" />
                 </LinearLayout>
 
                 <View style="@style/HorizontalLineStyle" />

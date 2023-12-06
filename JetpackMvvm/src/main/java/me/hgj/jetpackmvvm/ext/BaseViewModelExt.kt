@@ -62,13 +62,13 @@ fun <T> BaseVmFragment<*>.parseState(
     resultState: ResultState<T>,
     onSuccess: (T) -> Unit,
     onError: ((AppException) -> Unit)? = null,
-    onLoading: ((message:String) -> Unit)? = null
+    onLoading: ((message: String) -> Unit)? = null
 ) {
     when (resultState) {
         is ResultState.Loading -> {
-            if(onLoading==null){
+            if (onLoading == null) {
                 showLoading(resultState.loadingMessage)
-            }else{
+            } else {
                 onLoading.invoke(resultState.loadingMessage)
             }
         }
@@ -168,7 +168,8 @@ fun <T> BaseViewModel.request(
             loadingChange.dismissDialog.postValue(false)
             runCatching {
                 //校验请求结果码是否正确，不正确会抛出异常走下面的onFailure
-                executeResponse(it) { t -> success(t)
+                executeResponse(it) { t ->
+                    success(t)
                 }
             }.onFailure { e ->
                 //打印错误消息

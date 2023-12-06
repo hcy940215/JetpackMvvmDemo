@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.CompoundButton
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.include_toolbar.*
 import me.hgj.jetpackmvvm.demo.R
@@ -58,7 +59,7 @@ class LoginFragment : BaseFragment<LoginRegisterViewModel, FragmentLoginBinding>
                     CacheUtil.setUser(userInfo)
                     CacheUtil.setIsLogin(true)
                     appViewModel.userInfo.value = userInfo
-                    nav().navigateUp()
+                    findNavController().popBackStack(R.id.main_navation, false)
                 }, {
                     //登录失败
                     showMessage(it.errorMsg)

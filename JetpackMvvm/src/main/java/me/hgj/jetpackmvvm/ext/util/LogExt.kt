@@ -1,6 +1,7 @@
 package me.hgj.jetpackmvvm.ext.util
 
 import android.util.Log
+import com.orhanobut.logger.Logger
 
 const val TAG = "JetpackMvvm"
 
@@ -27,12 +28,12 @@ fun String.loge(tag: String = TAG) =
     log(LEVEL.E, tag, this)
 
 private fun log(level: LEVEL, tag: String, message: String) {
-    if (!jetpackMvvmLog) return
+//    if (!jetpackMvvmLog) return
     when (level) {
-        LEVEL.V -> Log.v(tag, message)
-        LEVEL.D -> Log.d(tag, message)
-        LEVEL.I -> Log.i(tag, message)
-        LEVEL.W -> Log.w(tag, message)
-        LEVEL.E -> Log.e(tag, message)
+        LEVEL.V -> Logger.v(tag, message)
+        LEVEL.D -> Logger.d(tag, message)
+        LEVEL.I -> Logger.i(tag, message)
+        LEVEL.W -> Logger.w(tag, message)
+        LEVEL.E -> Logger.e(tag, message)
     }
 }

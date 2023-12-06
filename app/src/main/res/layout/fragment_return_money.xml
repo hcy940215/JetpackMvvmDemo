@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+        <variable
+            name="click"
+            type="me.hgj.jetpackmvvm.demo.ui.fragment.integral.ReturnMoneyFragment.ProxyClick" />
+
+        <variable
+            name="vm"
+            type="me.hgj.jetpackmvvm.demo.viewmodel.state.PayReturnViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/windowBackground"
+        android:orientation="vertical">
+
+        <include layout="@layout/include_toolbar" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_15"
+            app:cardCornerRadius="@dimen/dp_8"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:layoutAnimation="@anim/layout_fall_down"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_15"
+                tools:layoutAnimation="@null">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="还款金额(元)"
+                    android:textColor="#ff999999"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_repayment_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:text="@={vm.loanAmount}"
+                    android:textColor="#ff333333"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    tools:text="690.97" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_15"
+            app:cardCornerRadius="@dimen/dp_8"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center_vertical"
+                android:layoutAnimation="@anim/layout_fall_down"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_15"
+                tools:layoutAnimation="@null">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_20"
+                    android:onClickListener="@{vm.fullAmountReturnClick}"
+                    android:src="@{vm.fullAmountReturnField}" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:text="全额还"
+                    android:textColor="#ff000000"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@={vm.loanAmount}"
+                    android:textColor="#ff000000"
+                    android:textSize="14sp"
+                    tools:text="690.97" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="元"
+                    android:textColor="#ff000000"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_15"
+            app:cardCornerRadius="@dimen/dp_8"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center_vertical"
+                android:layoutAnimation="@anim/layout_fall_down"
+                android:orientation="vertical"
+                android:padding="@dimen/dp_15"
+                tools:layoutAnimation="@null">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="@dimen/dp_20"
+                        android:onClickListener="@{vm.installmentReturnClick}"
+                        android:src="@{vm.installmentReturnField}" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:text="分期还"
+                        android:textColor="#ff000000"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@={vm.loanAmount}"
+                        android:textColor="#ff000000"
+                        android:textSize="14sp"
+                        tools:text="690.97" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="元"
+                        android:textColor="#ff000000"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <View
+                    style="@style/HorizontalLineStyle"
+                    android:layout_marginTop="@dimen/dp_15" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:text="期数"
+                    android:textColor="#ff333333"
+                    android:textSize="13sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_15">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="45dp"
+                        android:layout_marginRight="@dimen/dp_8"
+                        android:layout_weight="1"
+                        android:background="@drawable/payuse_radiobutton_selector"
+                        android:gravity="center"
+                        android:text="分3期"
+                        app:isSelect="@{vm.three}"
+                        android:onClick="@{vm.threeClick}"
+                        android:textColor="@color/bottom_selector"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="@dimen/dp_8"
+                        android:layout_weight="1"
+                        android:background="@drawable/payuse_radiobutton_selector"
+                        android:gravity="center"
+                        android:text="分6期"
+                        app:isSelect="@{vm.six}"
+                        android:onClick="@{vm.sixClick}"
+                        android:textColor="@color/bottom_selector"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_15">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="45dp"
+                        android:layout_marginRight="@dimen/dp_8"
+                        android:layout_weight="1"
+                        android:background="@drawable/payuse_radiobutton_selector"
+                        android:gravity="center"
+                        android:text="分9期"
+                        app:isSelect="@{vm.nine}"
+                        android:onClick="@{vm.nineClick}"
+                        android:textColor="@color/bottom_selector"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="@dimen/dp_8"
+                        android:layout_weight="1"
+                        android:background="@drawable/payuse_radiobutton_selector"
+                        android:gravity="center"
+                        android:text="分12期"
+                        app:isSelect="@{vm.twelve}"
+                        android:onClick="@{vm.twelveClick}"
+                        android:textColor="@color/bottom_selector"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <View
+                    style="@style/HorizontalLineStyle"
+                    android:layout_marginTop="@dimen/dp_15" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_15"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="金额"
+                        android:textColor="#ff333333"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ff000000"
+                        android:text="@={vm.repayMoney}"
+                        android:textSize="14sp"
+                        tools:text="230.99" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ff000000"
+                        android:text="元"
+                        android:textSize="14sp"
+                         />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/registerSub"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="@dimen/dp_30"
+            android:onClick="@{()->click.showPayDialog()}"
+            android:text="还款" />
+
+    </LinearLayout>
+</layout>

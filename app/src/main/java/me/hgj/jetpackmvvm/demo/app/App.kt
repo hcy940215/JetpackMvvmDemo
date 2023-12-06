@@ -67,7 +67,7 @@ class App : BaseApp() {
         // 初始化Bugly
         Bugly.init(context, if (BuildConfig.DEBUG) "xxx" else "a52f2b5ebb", BuildConfig.DEBUG)
         "".logd()
-        jetpackMvvmLog = BuildConfig.DEBUG
+        jetpackMvvmLog = true
 
 
 

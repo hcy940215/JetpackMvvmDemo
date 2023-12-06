@@ -12,9 +12,9 @@ import me.hgj.jetpackmvvm.ext.util.jetpackMvvmLog
 object LogUtils {
     private const val DEFAULT_TAG = "JetpackMvvm"
     fun debugInfo(tag: String?, msg: String?) {
-        if (!jetpackMvvmLog || TextUtils.isEmpty(msg)) {
-            return
-        }
+//        if (!jetpackMvvmLog || TextUtils.isEmpty(msg)) {
+//            return
+//        }
         Log.d(tag, msg!!)
         Log.e(DEFAULT_TAG, "$msg")
     }
@@ -27,9 +27,9 @@ object LogUtils {
     }
 
     fun warnInfo(tag: String?, msg: String?) {
-        if (!jetpackMvvmLog || TextUtils.isEmpty(msg)) {
-            return
-        }
+//        if (!jetpackMvvmLog || TextUtils.isEmpty(msg)) {
+//            return
+//        }
         Log.w(tag, msg!!)
     }
 
@@ -48,9 +48,9 @@ object LogUtils {
      */
     fun debugLongInfo(tag: String?, msg: String) {
         var msg = msg
-        if (!jetpackMvvmLog || TextUtils.isEmpty(msg)) {
-            return
-        }
+//        if (!jetpackMvvmLog || TextUtils.isEmpty(msg)) {
+//            return
+//        }
         msg = msg.trim { it <= ' ' }
         var index = 0
         val maxLength = 3500

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="click"
+            type="me.hgj.jetpackmvvm.demo.ui.fragment.collect.UserInfoFaceFragment.ProxyClick" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/face"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/ButtonStyle"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_60"
+            android:background="@color/transparent"
+            android:enabled="true"
+            android:onClick="@{()->click.close()}"
+            android:text="" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_200"
+            android:background="@color/transparent"
+            android:enabled="true"
+            android:onClick="@{()->click.register()}"
+            android:text="" />
+    </LinearLayout>
+
+</layout>

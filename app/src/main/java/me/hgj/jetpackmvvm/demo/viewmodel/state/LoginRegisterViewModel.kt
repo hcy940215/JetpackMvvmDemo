@@ -37,6 +37,9 @@ class LoginRegisterViewModel : BaseViewModel() {
     var isShowPwd2 = BooleanObservableField()
 
 
+    var cardId1 = StringObservableField()
+    var cardId2 = StringObservableField()
+
     //用户名清除按钮是否显示   不要在 xml 中写逻辑 所以逻辑判断放在这里
     var clearVisible = object :ObservableInt(username){
         override fun get(): Int {

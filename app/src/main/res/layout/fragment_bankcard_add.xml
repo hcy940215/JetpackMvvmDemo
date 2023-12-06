@@ -15,7 +15,7 @@
     </data>
 
     <LinearLayout
-        background="@color/windowBackground"
+        android:background="@color/windowBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -52,7 +52,7 @@
                         android:id="@+id/et_register_real_name"
                         style="@style/EditTextStyle"
                         android:hint="请输入姓名"
-                        android:inputType="textVisiblePassword"
+                        android:inputType="text"
                         android:maxLength="@integer/sms_code_length"
                         android:singleLine="true"
                         android:text="@={viewmodel.realName}"
@@ -143,7 +143,7 @@
                         android:id="@+id/et_register_phone"
                         style="@style/EditTextStyle"
                         android:hint="@string/common_phone_input_hint"
-                        android:inputType="textVisiblePassword"
+                        android:inputType="number"
                         android:singleLine="true"
                         android:text="@={viewmodel.username}"
                         app:regexType="number" />
@@ -170,7 +170,7 @@
                             android:id="@+id/et_register_code"
                             style="@style/EditTextStyle"
                             android:hint="@string/common_code_input_hint"
-                            android:inputType="textVisiblePassword"
+                            android:inputType="number"
                             android:maxLength="@integer/sms_code_length"
                             android:singleLine="true"
                             android:text="@={viewmodel.smsCode}"

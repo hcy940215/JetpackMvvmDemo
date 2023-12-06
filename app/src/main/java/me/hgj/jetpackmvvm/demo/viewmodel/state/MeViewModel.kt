@@ -1,5 +1,7 @@
 package me.hgj.jetpackmvvm.demo.viewmodel.state
 
+import android.view.View
+import androidx.databinding.ObservableInt
 import me.hgj.jetpackmvvm.base.viewmodel.BaseViewModel
 import me.hgj.jetpackmvvm.callback.databind.IntObservableField
 import me.hgj.jetpackmvvm.callback.databind.StringObservableField
@@ -19,4 +21,5 @@ class MeViewModel : BaseViewModel() {
     var info = StringObservableField("id：--　排名：-")
 
     var imageUrl = StringObservableField(ColorUtil.randomImage())
+
 }

@@ -1,10 +1,12 @@
 package me.hgj.jetpackmvvm.demo.app.network
 
 import me.hgj.jetpackmvvm.demo.data.model.bean.*
+import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
-import retrofit2.Response
+import retrofit2.Call
 import retrofit2.http.*
+
 
 /**
  * 作者　: hegaojian
@@ -34,13 +36,16 @@ interface ApiService {
     ): ApiResponse<Any>
 
     /**
-     * 获取短信验证码
+     * 上传图片
      */
     @HTTP(method = "POST", path = "/common/upload", hasBody = true)
     suspend fun upload(
         @Body body: RequestBody,
-    ): ApiResponse<Any>
+    ): ApiResponse<String>
 
+    @Multipart
+    @POST("/common/upload")
+    suspend fun uploadOneFile(@Part body: MultipartBody.Part?): ApiResponse<ImageUrlResponse>
     /**
      * 通用附件上传接口（上传身份证，人脸识别都是调用这个附件上传即可）
      */
@@ -75,7 +80,7 @@ interface ApiService {
     @HTTP(method = "POST", path = "/Apploan/newLoan", hasBody = true)
     suspend fun newLoan(
         @Body body: RequestBody,
-    ): ApiResponse<Any>
+    ): ApiResponse<Any?>
 
     /**
      * 生成还款计划
@@ -83,7 +88,7 @@ interface ApiService {
     @HTTP(method = "POST", path = "/Apploan/repaymentPlan", hasBody = true)
     suspend fun repaymentPlan(
         @Body body: RequestBody,
-    ): ApiResponse<Any>
+    ): ApiResponse<ArrayList<LoanPayData>>
 
     /**
      * 生成还款计划
