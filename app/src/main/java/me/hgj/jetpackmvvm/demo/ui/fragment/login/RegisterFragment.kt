@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.widget.CompoundButton
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.NavOptions
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import kotlinx.android.synthetic.main.include_toolbar.*
 import me.hgj.jetpackmvvm.demo.R
 import me.hgj.jetpackmvvm.demo.app.appViewModel
@@ -51,7 +54,11 @@ class RegisterFragment : BaseFragment<LoginRegisterViewModel, FragmentRegisterNe
                     CacheUtil.setIsLogin(true)
                     CacheUtil.setUser(userInfo)
                     appViewModel.userInfo.value = userInfo
-                    nav().navigateAction(R.id.action_registerFrgment_to_mainFragment)
+                    findNavController().navigate(
+                        R.id.main_navation, null,
+                        NavOptions.Builder()
+                            .setPopUpTo(R.id.main_navation, true).build()
+                    )
                 }, {
                     showMessage(it.errorMsg)
                 })
@@ -91,6 +98,8 @@ class RegisterFragment : BaseFragment<LoginRegisterViewModel, FragmentRegisterNe
                     username = mViewModel.username.get(),
                     smsCode = mViewModel.smsCode.get(),
                     password = mViewModel.password.get(),
+                    mViewModel.cardId1.get(),
+                    mViewModel.cardId2.get()
                 )
             }
         }
