@@ -85,6 +85,22 @@ android {
         }
     }
 
+    //修改生成的apk名字
+    applicationVariants.all{ variant->
+        variant.outputs.each { output->
+            //只有release编译时生效
+            if(variant.buildType.name.equals('release')){
+                // APK输出文件名规则：极剪-版本名-.apk
+                def releaseApkName = 'app_release.apk'
+                // 设置apk输出文件夹
+                output.getPackageApplication().outputDirectory = new File(project.rootDir.absolutePath + "/app")
+                // 设置apk输出文件名
+                output.outputFileName = releaseApkName
+            }
+        }
+    }
+
+
     packagingOptions {
         exclude 'META-INF/androidx.preference_preference.version'
         exclude 'META-INF/shark-log.kotlin_module'
