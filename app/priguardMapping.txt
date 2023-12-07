@@ -1,11 +1,11 @@
 # compiler: R8
 # compiler_version: 2.1.75
 # min_api: 21
-# pg_map_id: d5feb9b
+# pg_map_id: 9523ba2
 # common_typos_disable
 $$ServiceLoaderMethods -> a:
-    java.util.Iterator $load$46212() -> a
-    java.util.Iterator $load$47131() -> b
+    java.util.Iterator $load$46230() -> a
+    java.util.Iterator $load$47149() -> b
 $r8$backportedMethods$utility$Long$1$hashCode -> b:
     int hashCode(long) -> a
 androidx.lifecycle.DefaultLifecycleObserver$-CC -> androidx.lifecycle.a:
@@ -9248,11 +9248,10 @@ com.zhpan.bannerview.BannerViewPager -> com.zhpan.bannerview.BannerViewPager:
     androidx.viewpager2.widget.ViewPager2$OnPageChangeCallback onPageChangeCallback -> k
     boolean isLooping -> c
     android.os.Handler mHandler -> i
-    com.zhpan.bannerview.BannerViewPager setLifecycleRegistry(androidx.lifecycle.Lifecycle) -> A
-    void setMultiPageStyle(boolean,float) -> B
-    com.zhpan.bannerview.BannerViewPager setOnPageClickListener(com.zhpan.bannerview.BannerViewPager$OnPageClickListener) -> C
-    void startLoop() -> D
-    void stopLoop() -> E
+    void setMultiPageStyle(boolean,float) -> A
+    com.zhpan.bannerview.BannerViewPager setOnPageClickListener(com.zhpan.bannerview.BannerViewPager$OnPageClickListener) -> B
+    void startLoop() -> C
+    void stopLoop() -> D
     void access$000(com.zhpan.bannerview.BannerViewPager) -> a
     com.zhpan.bannerview.BaseBannerAdapter access$100(com.zhpan.bannerview.BannerViewPager) -> b
     boolean access$200(com.zhpan.bannerview.BannerViewPager) -> c
@@ -9276,9 +9275,9 @@ com.zhpan.bannerview.BannerViewPager -> com.zhpan.bannerview.BannerViewPager:
     boolean isCanLoop() -> u
     void onHorizontalActionMove(int,int,int) -> v
     void onVerticalActionMove(int,int,int) -> w
-    com.zhpan.bannerview.BannerViewPager registerOnPageChangeCallback(androidx.viewpager2.widget.ViewPager2$OnPageChangeCallback) -> x
-    void resetCurrentItem(int) -> y
-    com.zhpan.bannerview.BannerViewPager setAdapter(com.zhpan.bannerview.BaseBannerAdapter) -> z
+    void resetCurrentItem(int) -> x
+    com.zhpan.bannerview.BannerViewPager setAdapter(com.zhpan.bannerview.BaseBannerAdapter) -> y
+    com.zhpan.bannerview.BannerViewPager setLifecycleRegistry(androidx.lifecycle.Lifecycle) -> z
 com.zhpan.bannerview.BannerViewPager$1 -> com.zhpan.bannerview.BannerViewPager$a:
     com.zhpan.bannerview.BannerViewPager this$0 -> a
 com.zhpan.bannerview.BannerViewPager$2 -> com.zhpan.bannerview.BannerViewPager$b:
@@ -11902,14 +11901,13 @@ me.hgj.jetpackmvvm.demo.app.util.CacheUtil -> me.hgj.jetpackmvvm.demo.app.a.d:
     me.hgj.jetpackmvvm.demo.app.util.CacheUtil INSTANCE -> a
     java.util.ArrayList getSearchHistoryData() -> a
     me.hgj.jetpackmvvm.demo.data.model.bean.UserInfo getUser() -> b
-    boolean isFirst() -> c
-    boolean isLogin() -> d
-    boolean isNeedTop() -> e
-    boolean setFirst(boolean) -> f
-    void setIsLogin(boolean) -> g
-    boolean setIsNeedTop(boolean) -> h
-    void setSearchHistoryData(java.lang.String) -> i
-    void setUser(me.hgj.jetpackmvvm.demo.data.model.bean.UserInfo) -> j
+    boolean isLogin() -> c
+    boolean isNeedTop() -> d
+    boolean setFirst(boolean) -> e
+    void setIsLogin(boolean) -> f
+    boolean setIsNeedTop(boolean) -> g
+    void setSearchHistoryData(java.lang.String) -> h
+    void setUser(me.hgj.jetpackmvvm.demo.data.model.bean.UserInfo) -> i
 me.hgj.jetpackmvvm.demo.app.util.CacheUtil$getSearchHistoryData$1 -> me.hgj.jetpackmvvm.demo.app.a.d$a:
 me.hgj.jetpackmvvm.demo.app.util.ColorUtil -> me.hgj.jetpackmvvm.demo.app.a.e:
     int[][] PRIMARY_COLORS_SUB -> c
@@ -13041,7 +13039,7 @@ me.hgj.jetpackmvvm.demo.generated.callback.OnClickListener$Listener -> me.hgj.je
     void _internalCallbackOnClick(int,android.view.View) -> h
 me.hgj.jetpackmvvm.demo.ui.activity.-$$Lambda$MainActivity$zFiYK6xLsroCPFtyRYGKwgH2QCc -> me.hgj.jetpackmvvm.demo.ui.activity.a:
     me.hgj.jetpackmvvm.demo.ui.activity.MainActivity f$0 -> a
-me.hgj.jetpackmvvm.demo.ui.activity.-$$Lambda$WelcomeActivity$73u70vPeZ6HSfExSy5-4Z0DxUys -> me.hgj.jetpackmvvm.demo.ui.activity.b:
+me.hgj.jetpackmvvm.demo.ui.activity.-$$Lambda$WelcomeActivity$azCgn17iYoaW8UDws4K_krhpJyw -> me.hgj.jetpackmvvm.demo.ui.activity.b:
     me.hgj.jetpackmvvm.demo.ui.activity.WelcomeActivity f$0 -> a
 me.hgj.jetpackmvvm.demo.ui.activity.ErrorActivity -> me.hgj.jetpackmvvm.demo.ui.activity.ErrorActivity:
     void initView(android.os.Bundle) -> q
@@ -13075,17 +13073,13 @@ me.hgj.jetpackmvvm.demo.ui.activity.TestActivity$initView$1$1 -> me.hgj.jetpackm
     void invoke(int,java.lang.String,boolean) -> b
     java.lang.Object invoke(java.lang.Object,java.lang.Object,java.lang.Object) -> h
 me.hgj.jetpackmvvm.demo.ui.activity.WelcomeActivity -> me.hgj.jetpackmvvm.demo.ui.activity.WelcomeActivity:
-    com.zhpan.bannerview.BannerViewPager mViewPager -> d
-    java.lang.String[] resList -> c
-    java.lang.String[] access$getResList$p(me.hgj.jetpackmvvm.demo.ui.activity.WelcomeActivity) -> F
-    void initView$lambda-1(me.hgj.jetpackmvvm.demo.ui.activity.WelcomeActivity) -> G
-    void lambda$73u70vPeZ6HSfExSy5-4Z0DxUys(me.hgj.jetpackmvvm.demo.ui.activity.WelcomeActivity) -> H
+    com.zhpan.bannerview.BannerViewPager mViewPager -> c
+    void initView$lambda-0(me.hgj.jetpackmvvm.demo.ui.activity.WelcomeActivity) -> F
+    void lambda$azCgn17iYoaW8UDws4K_krhpJyw(me.hgj.jetpackmvvm.demo.ui.activity.WelcomeActivity) -> G
     void initView(android.os.Bundle) -> q
 me.hgj.jetpackmvvm.demo.ui.activity.WelcomeActivity$ProxyClick -> me.hgj.jetpackmvvm.demo.ui.activity.WelcomeActivity$a:
     me.hgj.jetpackmvvm.demo.ui.activity.WelcomeActivity this$0 -> a
     void toMain() -> a
-me.hgj.jetpackmvvm.demo.ui.activity.WelcomeActivity$initView$1$1 -> me.hgj.jetpackmvvm.demo.ui.activity.WelcomeActivity$initView$1$1:
-    me.hgj.jetpackmvvm.demo.ui.activity.WelcomeActivity this$0 -> a
 me.hgj.jetpackmvvm.demo.ui.adapter.-$$Lambda$NavigationAdapter$rJ3fRHGSeVrjrIMlGwLB0NzY42A -> me.hgj.jetpackmvvm.demo.ui.adapter.a:
     me.hgj.jetpackmvvm.demo.data.model.bean.NavigationResponse f$1 -> b
     me.hgj.jetpackmvvm.demo.ui.adapter.NavigationAdapter f$0 -> a
@@ -13694,7 +13688,7 @@ me.hgj.jetpackmvvm.demo.ui.fragment.login.LoginFragment$ProxyClick -> me.hgj.jet
     void login() -> e
     void onCheckedChangeListener$lambda-0(me.hgj.jetpackmvvm.demo.ui.fragment.login.LoginFragment,android.widget.CompoundButton,boolean) -> f
 me.hgj.jetpackmvvm.demo.ui.fragment.login.LoginFragment$createObserver$1$1 -> me.hgj.jetpackmvvm.demo.ui.fragment.login.LoginFragment$createObserver$1$1:
-    void invoke(java.lang.String) -> b
+    void invoke(me.hgj.jetpackmvvm.demo.data.model.bean.UserInfoToken) -> b
 me.hgj.jetpackmvvm.demo.ui.fragment.login.LoginFragment$createObserver$1$2 -> me.hgj.jetpackmvvm.demo.ui.fragment.login.LoginFragment$createObserver$1$2:
     void invoke(me.hgj.jetpackmvvm.network.AppException) -> b
 me.hgj.jetpackmvvm.demo.ui.fragment.login.LoginFragment$initView$1 -> me.hgj.jetpackmvvm.demo.ui.fragment.login.LoginFragment$initView$1:
@@ -13726,7 +13720,7 @@ me.hgj.jetpackmvvm.demo.ui.fragment.login.RegisterFragment$ProxyClick -> me.hgj.
     void register() -> i
     void uploadCard() -> j
 me.hgj.jetpackmvvm.demo.ui.fragment.login.RegisterFragment$createObserver$1$1 -> me.hgj.jetpackmvvm.demo.ui.fragment.login.RegisterFragment$createObserver$1$1:
-    void invoke(java.lang.String) -> b
+    void invoke(me.hgj.jetpackmvvm.demo.data.model.bean.UserInfoToken) -> b
 me.hgj.jetpackmvvm.demo.ui.fragment.login.RegisterFragment$createObserver$1$2 -> me.hgj.jetpackmvvm.demo.ui.fragment.login.RegisterFragment$createObserver$1$2:
     void invoke(me.hgj.jetpackmvvm.network.AppException) -> b
 me.hgj.jetpackmvvm.demo.ui.fragment.login.RegisterFragment$initView$1 -> me.hgj.jetpackmvvm.demo.ui.fragment.login.RegisterFragment$initView$1:
@@ -15165,10 +15159,9 @@ me.hgj.jetpackmvvm.ext.view.ViewExtKt -> me.hgj.jetpackmvvm.ext.c.c:
     void clickNoRepeat$default(android.view.View,long,kotlin.jvm.functions.Function1,int,java.lang.Object) -> b
     void clickNoRepeat$lambda-1(long,kotlin.jvm.functions.Function1,android.view.View) -> c
     long getLastClickTime() -> d
-    void gone(android.view.View) -> e
-    void lambda$7_BnKveOHbH0I2qqjQaloHTfQss(long,kotlin.jvm.functions.Function1,android.view.View) -> f
-    void setLastClickTime(long) -> g
-    void visible(android.view.View) -> h
+    void lambda$7_BnKveOHbH0I2qqjQaloHTfQss(long,kotlin.jvm.functions.Function1,android.view.View) -> e
+    void setLastClickTime(long) -> f
+    void visible(android.view.View) -> g
 me.hgj.jetpackmvvm.navigation.FragmentNavigatorHideShow -> me.hgj.jetpackmvvm.navigation.FragmentNavigatorHideShow:
     android.content.Context mContext -> a
     androidx.fragment.app.FragmentManager mFragmentManager -> b

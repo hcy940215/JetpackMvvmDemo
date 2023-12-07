@@ -24,7 +24,7 @@ import me.hgj.jetpackmvvm.ext.view.visible
 @Suppress("DEPRECATED_IDENTITY_EQUALS")
 class WelcomeActivity : BaseActivity<BaseViewModel, ActivityWelcomeBinding>() {
 
-    private var resList = arrayOf("唱", "跳", "r a p")
+    private var resList = arrayOf("贷Job", "贷Job", "贷Job")
 
     private lateinit var mViewPager: BannerViewPager<String, WelcomeBannerViewHolder>
 
@@ -37,34 +37,14 @@ class WelcomeActivity : BaseActivity<BaseViewModel, ActivityWelcomeBinding>() {
         mDatabind.click = ProxyClick()
         welcome_baseview.setBackgroundColor(SettingUtil.getColor(this))
         mViewPager = findViewById(R.id.banner_view)
-        if (CacheUtil.isFirst()) {
-            //是第一次打开App 显示引导页
-            welcome_image.gone()
-            mViewPager.apply {
-                adapter = WelcomeBannerAdapter()
-                setLifecycleRegistry(lifecycle)
-                registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-                    override fun onPageSelected(position: Int) {
-                        super.onPageSelected(position)
-                        if (position == resList.size - 1) {
-                            welcomeJoin.visible()
-                        } else {
-                            welcomeJoin.gone()
-                        }
-                    }
-                })
-                create(resList.toList())
-            }
-        } else {
-            //不是第一次打开App 0.3秒后自动跳转到主页
-            welcome_image.visible()
-            mViewPager.postDelayed({
-                startActivity(Intent(this, MainActivity::class.java))
-                finish()
-                //带点渐变动画
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-            }, 300)
-        }
+        //不是第一次打开App 0.3秒后自动跳转到主页
+        welcome_image.visible()
+        mViewPager.postDelayed({
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+            //带点渐变动画
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        }, 1500)
     }
 
     inner class ProxyClick {

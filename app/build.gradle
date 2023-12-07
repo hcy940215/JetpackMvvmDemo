@@ -16,10 +16,10 @@ android {
         versionCode 27
         versionName "1.2.7"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-      /* ndk {
-            // 设置支持的SO库架构
-            abiFilters 'armeabi','armeabi-v7a'
-        }*/
+        /* ndk {
+              // 设置支持的SO库架构
+              abiFilters 'armeabi','armeabi-v7a'
+          }*/
         multiDexEnabled true
     }
     buildFeatures {
@@ -37,6 +37,7 @@ android {
             minifyEnabled false
             shrinkResources false
             zipAlignEnabled false
+            signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
@@ -44,6 +45,7 @@ android {
             minifyEnabled true//开启混淆
             shrinkResources true
             zipAlignEnabled true//去除无用资源
+            signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -68,6 +70,39 @@ android {
                 '--set-max-idx-number=60000'//每个包内方法数上限
         ]
     }
+    signingConfigs {
+        debug {
+            storeFile file('job.jks')
+            storePassword '123456'
+            keyAlias 'key0'
+            keyPassword '123456'
+        }
+        release {
+            storeFile file('job.jks')
+            storePassword '123456'
+            keyAlias 'key0'
+            keyPassword '123456'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/androidx.preference_preference.version'
+        exclude 'META-INF/shark-log.kotlin_module'
+        exclude 'META-INF/lifecycle-livedata-ktx_release.kotlin_module'
+        exclude 'META-INF/androidx.localbroadcastmanager_localbroadcastmanager.version'
+        exclude 'META-INF/androidx.lifecycle_lifecycle-viewmodel-savedstate.version'
+        exclude 'META-INF/androidx.transition_transition.version'
+        exclude 'kotlin/internal/internal.kotlin_builtins'
+        exclude 'META-INF/androidx.navigation_navigation-fragment.version'
+        exclude 'META-INF/androidx.appcompat_appcompat.version'
+        exclude 'META-INF/androidx.swiperefreshlayout_swiperefreshlayout.version'
+        exclude 'kotlin/reflect/reflect.kotlin_builtins'
+        exclude 'okhttp3/internal/publicsuffix/NOTICE'
+        exclude 'META-INF/lifecycle.kotlin_module'
+        exclude 'META-INF/navigation-ui-ktx_release.kotlin_module'
+        exclude 'META-INF/services/kotlinx.coroutines.internal.MainDispatcherFactory'
+    }
+
 }
 
 dependencies {
@@ -140,6 +175,6 @@ dependencies {
     // Shape 框架：https://github.com/getActivity/ShapeView
     implementation 'com.github.getActivity:ShapeView:6.0'
 
-        implementation 'com.github.esafirm:android-image-picker:3.0.0'
+    implementation 'com.github.esafirm:android-image-picker:3.0.0'
 
 }
