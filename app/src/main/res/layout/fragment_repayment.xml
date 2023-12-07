@@ -15,14 +15,13 @@
         android:background="@mipmap/repay_bg"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="贷Job"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/dp_20"
-            android:textColor="#ffffffff"
-            android:textSize="20sp" />
+            android:src="@mipmap/icon_logo" />
 
         <LinearLayout
             android:layout_width="wrap_content"

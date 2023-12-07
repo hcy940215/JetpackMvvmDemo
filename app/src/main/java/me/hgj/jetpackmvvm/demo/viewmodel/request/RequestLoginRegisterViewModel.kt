@@ -5,6 +5,7 @@ import me.hgj.jetpackmvvm.base.viewmodel.BaseViewModel
 import me.hgj.jetpackmvvm.demo.app.network.apiService
 import me.hgj.jetpackmvvm.demo.app.util.toRequestBody
 import me.hgj.jetpackmvvm.demo.data.model.bean.UserInfo
+import me.hgj.jetpackmvvm.demo.data.model.bean.UserInfoToken
 import me.hgj.jetpackmvvm.demo.data.repository.request.HttpRequestCoroutine
 import me.hgj.jetpackmvvm.ext.request
 import me.hgj.jetpackmvvm.state.ResultState
@@ -18,7 +19,7 @@ import org.json.JSONObject
 class RequestLoginRegisterViewModel : BaseViewModel() {
 
     //方式1  自动脱壳过滤处理请求结果，判断结果是否成功
-    var loginResult = MutableLiveData<ResultState<String>>()
+    var loginResult = MutableLiveData<ResultState<UserInfoToken>>()
 
     var smsCodeResult = MutableLiveData<ResultState<String>>()
 

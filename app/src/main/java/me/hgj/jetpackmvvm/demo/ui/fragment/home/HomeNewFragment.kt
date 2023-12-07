@@ -12,7 +12,6 @@ import me.hgj.jetpackmvvm.demo.app.eventViewModel
 import me.hgj.jetpackmvvm.demo.app.ext.setUiTheme
 import me.hgj.jetpackmvvm.demo.databinding.FragmentHomeNewBinding
 import me.hgj.jetpackmvvm.demo.viewmodel.state.HomeViewModel
-import shark.SharkLog
 
 /**
  * 作者　: hegaojian
@@ -23,8 +22,6 @@ class HomeNewFragment : BaseFragment<HomeViewModel, FragmentHomeNewBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
         mDatabind.tvHome.setOnClickListener {
-            Logger.e("点击了")
-            Log.e("TAG", "initView: ")
             findNavController().navigate(R.id.newLoanUserInfoFragment)
         }
     }

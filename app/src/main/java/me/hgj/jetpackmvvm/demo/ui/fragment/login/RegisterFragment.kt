@@ -49,11 +49,10 @@ class RegisterFragment : BaseFragment<LoginRegisterViewModel, FragmentRegisterNe
             viewLifecycleOwner,
             Observer { resultState ->
                 parseState(resultState, {
-                    val userInfo = UserInfo()
-                    userInfo.token = it
+                    it.user?.token = it.token
+                    CacheUtil.setUser(it.user)
                     CacheUtil.setIsLogin(true)
-                    CacheUtil.setUser(userInfo)
-                    appViewModel.userInfo.value = userInfo
+                    appViewModel.userInfo.value = it.user
                     findNavController().navigate(
                         R.id.main_navation, null,
                         NavOptions.Builder()

@@ -49,7 +49,7 @@ class HttpRequestManger {
         password: String? = "",
         idCardImgFront: String? = "idCardImgFront",
         idCardImgBack: String? = "idCardImgFront",
-    ): TokenApiResponse<String> {
+    ): ApiResponse<UserInfoToken> {
         val jsonObject = JSONObject()
         jsonObject.put("realName", realName)
         jsonObject.put("username", username)

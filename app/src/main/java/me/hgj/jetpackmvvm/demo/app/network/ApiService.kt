@@ -25,7 +25,7 @@ interface ApiService {
     @HTTP(method = "POST", path = "/login", hasBody = true)
     suspend fun login(
         @Body body: RequestBody,
-    ): TokenApiResponse<String>
+    ): ApiResponse<UserInfoToken>
 
     /**
      * 注册
@@ -33,7 +33,7 @@ interface ApiService {
     @HTTP(method = "POST", path = "/register", hasBody = true)
     suspend fun register(
         @Body body: RequestBody,
-    ): ApiResponse<Any>
+    ): ApiResponse<UserInfoToken>
 
     /**
      * 上传图片

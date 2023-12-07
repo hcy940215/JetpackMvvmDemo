@@ -52,13 +52,10 @@ class LoginFragment : BaseFragment<LoginRegisterViewModel, FragmentLoginBinding>
     override fun createObserver() {
         requestLoginRegisterViewModel.loginResult.observe(viewLifecycleOwner,Observer { resultState ->
                 parseState(resultState, {
-                    //登录成功 通知账户数据发生改变鸟
-                    val userInfo = UserInfo().apply {
-                        token = it
-                    }
-                    CacheUtil.setUser(userInfo)
+                    it.user?.token = it.token
+                    CacheUtil.setUser(it.user)
                     CacheUtil.setIsLogin(true)
-                    appViewModel.userInfo.value = userInfo
+                    appViewModel.userInfo.value = it.user
                     findNavController().popBackStack(R.id.main_navation, false)
                 }, {
                     //登录失败

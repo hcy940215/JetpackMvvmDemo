@@ -28,11 +28,12 @@ class MeFragment : BaseFragment<MeViewModel, FragmentMeBinding>() {
         mDatabind.vm = mViewModel
         mDatabind.click = ProxyClick()
 //        appViewModel.appColor.value?.let { setUiTheme(it, me_linear, me_integral) }
-        appViewModel.userInfo.value?.let { mViewModel.name.set(if (it.nickname.isEmpty()) it.username else it.nickname) }
+        appViewModel.userInfo.value?.let { mViewModel.name.set(if (it.userName.isEmpty()) it.userName else it.userName) }
     }
 
     override fun lazyLoadData() {
         appViewModel.userInfo.value?.run {
+
         }
     }
 
@@ -49,7 +50,7 @@ class MeFragment : BaseFragment<MeViewModel, FragmentMeBinding>() {
             })
             userInfo.observeInFragment(this@MeFragment, Observer {
                 it.notNull({
-                    mViewModel.name.set(if (it.nickname.isEmpty()) it.username else it.nickname)
+                    mViewModel.name.set(if (it.userName.isEmpty()) it.userName else it.userName)
                 }, {
                     mViewModel.name.set("请先登录~")
                     mViewModel.info.set("id：--　排名：--")
